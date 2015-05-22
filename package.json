@@ -1,0 +1,70 @@
+{
+  "name": "RemindMe",
+  "version": "1.0.0",
+  "description": "RemindMe has been created for a Ephemeral workshop at Gobelins - l'école de l'image.",
+  "private": true,
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdacosta/remindme.git"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "hbsfy"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "three": "global:THREE"
+  },
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "boom": "~2.7.1",
+    "good": "~6.1.2",
+    "good-console": "~5.0.0",
+    "handlebars": "~3.0.3",
+    "hapi": "~8.4.0",
+    "hapi-cache-buster": "~0.4.0",
+    "jquery": "~2.1.4",
+    "joi": "~6.2.0",
+    "lodash": "~3.9.1",
+    "mongoose": "~4.0.1",
+    "socket.io": "~1.3.5",
+    "three": "~0.71.0"
+  },
+  "devDependencies": {
+    "browser-sync": "~2.5.2",
+    "browserify": "~10.0.0",
+    "browserify-shim": "~3.8.6",
+    "del": "~1.1.1",
+    "gulp": "~3.8.11",
+    "gulp-autoprefixer": "~2.1.0",
+    "gulp-changed": "~1.2.1",
+    "gulp-concat": "~2.5.2",
+    "gulp-handlebars": "~4.0.0",
+    "gulp-iconfont": "~1.0.0",
+    "gulp-imagemin": "~2.2.1",
+    "gulp-minify-css": "~1.1.1",
+    "gulp-minify-html": "~1.0.2",
+    "gulp-notify": "~2.2.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "~1.3.3",
+    "gulp-sequence": "~0.3.2",
+    "gulp-sourcemaps": "~1.5.1",
+    "gulp-swig": "~0.7.4",
+    "gulp-uglify": "~1.2.0",
+    "gulp-util": "~3.0.4",
+    "gulp-watch": "~4.2.4",
+    "hbsfy": "~2.2.1",
+    "imagemin-pngquant": "~4.0.0",
+    "lodash.assign": "~3.1.0",
+    "require-dir": "~0.3.0",
+    "vinyl-buffer": "~1.0.0",
+    "vinyl-source-stream": "~1.1.0",
+    "watchify": "~3.2.1"
+  }
+}
