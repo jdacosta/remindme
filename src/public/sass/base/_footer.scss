@@ -1,0 +1,25 @@
+footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    z-index: 900;
+    background: rgba(0,0,0,.3);
+
+    .controls {
+
+        .control {
+            border: 1px solid rgba(255,255,255,.5);
+            @include size(45px);
+            @include border-radius(50%);
+            box-shadow: inset rgba(255,255,255,0.35) 2px 2px 12px;
+
+            display: inline-block;
+            margin: 0 3px;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid rgba(255,255,255,1);
+            }
+        }
+    }
+}

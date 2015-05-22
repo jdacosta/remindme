@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Remind Me</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+    <header>
+        <h1>Remind Me</h1>
+        <nav>
+            <ul>
+                <li><a href="#/">Expérience</a></li>
+                <li><a href="#/about">À propos</a></li>
+                <li><a href="#/community">Communauté</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main></main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#/legal-notice">Mentions légales</a></li>
+                <li><a href="#/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <ul>
+                <li class="control full-screen"></li>
+                <li class="control sound"></li>
+                <li class="control language"></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        (function () {
+            var socket = io.connect('http://localhost:1338');
+            socket.emit('newHosting');
+            /*socket.on('newConnectionID', function (data) {
+                console.log(data);
+            });*/
+        })();
+    </script>
+</body>
+</html>
