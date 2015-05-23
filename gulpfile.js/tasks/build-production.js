@@ -5,7 +5,7 @@ gulp.task('build:production', function (callback) {
     process.env.NODE_ENV = 'production';
     gulpSequence(
         'clean',
-        ['icons', 'images', 'fonts'],
+        ['icons', 'images', 'videos', 'fonts'],
         ['sass', 'browserify', 'html', 'server'],
         callback
     );
