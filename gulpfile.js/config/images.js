@@ -2,8 +2,8 @@ var config   = require('./');
 var pngquant = require('imagemin-pngquant');
 
 module.exports = {
-    src:  config.sourceAssets + '/images/**',
-    dest: config.publicAssets + '/images',
+    src:  config.sourceAssets + '/img/**/*',
+    dest: config.publicAssets + '/img',
     imagemin: {
         optimizationLevel: 3,
         progressive: true,
