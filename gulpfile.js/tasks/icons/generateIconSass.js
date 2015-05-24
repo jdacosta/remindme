@@ -4,7 +4,7 @@ var swig         = require('gulp-swig');
 var config       = require('../../config/icons');
 var handleErrors = require('../../lib/handleErrors');
 
-module.exports = function (codepoints, options) {
+module.exports = function (codepoints) {
     gulp.src(config.template)
         .pipe(swig({
             data: {
