@@ -9,7 +9,7 @@ module.exports = {
         comments: true,
         conditionals: true,
         spare: true,
-        quotes: false,
+        quotes: true,
         loose: true
     }
 };

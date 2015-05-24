@@ -6,7 +6,7 @@ var handleErrors = require('../lib/handleErrors');
 
 gulp.task('html', function () {
     return gulp.src(config.src)
-        .pipe(minifyhtml())
+        .pipe(minifyhtml(config.minify))
         .on('error', handleErrors)
         .pipe(gulp.dest(config.dest))
         .pipe(browserSync.reload({ stream: true }));
