@@ -1,7 +1,86 @@
-header {
+.gui-header {
     width: 100%;
-    position: absolute;
-    top: 0;
+    @include absolute(top 0);
+    font: 1.6vh $font-lato-regular; // 16px
     z-index: 900;
-    background: rgba(0,0,0,.3);
+
+    .logo {
+        width: 22vw; // 430px
+        @include relative(top 0 left 7vh);
+        z-index: 2;
+
+        .logo-text {
+            @include size(6.8vw); // 128px
+            @include absolute(top 0 right 50%);
+            margin: 1.4vh -3.4vw 0 0; // 15px -64px
+            fill: $color-white-10;
+        }
+
+        .logo-circle {
+            @include size(22vw); // 430px
+            @include absolute(top -15vw right 50%); // -3OOpx
+            margin: 0 -11vw 0 0; // -215px
+            fill: none;
+            stroke: $alzheimer-step1-10;
+            animation: rotation 300s linear infinite;
+            opacity: .5;
+        }
+    }
+
+    nav {
+        @include absolute(right 0);
+        margin: 0 7vh;
+        text-align: right;
+
+        ul {
+            li {
+                margin: 7vh 12px;
+                display: inline-block;
+                text-transform: uppercase;
+
+                a {
+                    color: $color-white-10;
+                    text-decoration: none;
+
+                    &.active,
+                    &:hover {
+                        color: $alzheimer-step1-10;
+                        padding: 0 0 11px 0;
+                        border-bottom: 3px solid $alzheimer-step1-10;
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        @include absolute(top 16vh right 7vh);
+
+        .button {
+            @include size(4vh); // 40 px
+            position: relative;
+            display: block;
+            margin: 0 0 15px 0;
+            @include border-radius(50%);
+            border: 1px solid $color-white-02;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid $color-white-10;
+
+                .icon {
+                    color: $color-white-10;
+                }
+            }
+
+            .icon {
+                @include size(4vh); // 40px
+                position: absolute;
+                color: $color-white-02;
+                font-size: 2vh; // 18px
+                line-height: 4vh;
+                text-align: center;
+            }
+        }
+    }
 }

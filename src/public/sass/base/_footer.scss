@@ -1,24 +1,68 @@
-footer {
+.gui-footer {
     width: 100%;
-    bottom: 0;
-    position: absolute;
+    @include absolute(bottom 0);
     z-index: 900;
-    background: rgba(0,0,0,.3);
 
-    .controls {
+    nav {
+        margin: 0 7vh;
 
-        .control {
-            border: 1px solid rgba(255,255,255,.5);
-            @include size(45px);
-            @include border-radius(50%);
-            box-shadow: inset rgba(255,255,255,0.35) 2px 2px 12px;
+        ul {
+            li {
+                color: $color-white-02;
+                display: inline-block;
 
+                a {
+                    color: $color-white-02;
+                    text-decoration: none;
+
+                    &.active,
+                    &:hover {
+                        color: $color-white-10;
+                    }
+                }
+
+                &:first-child {
+                    margin: 0 10px 2vh 0;
+                }
+
+                &:last-child {
+                    margin: 0 0 2vh 10px;
+                }
+            }
+        }
+    }
+
+    .gui-controls {
+        @include absolute(bottom 2vh right 7vh);
+
+        .button {
+            @include size(4vh); // 40 px
+            position: relative;
             display: inline-block;
-            margin: 0 3px;
+            margin: 0 7px;
+            @include border-radius(50%);
+            border: 1px solid $color-white-02;
             cursor: pointer;
 
+            &:last-child {
+                margin: 0 0 0 7px;
+            }
+
             &:hover {
-                border: 1px solid rgba(255,255,255,1);
+                border: 1px solid $color-white-10;
+
+                .icon {
+                    color: $color-white-10;
+                }
+            }
+
+            .icon {
+                @include size(4vh); // 40px
+                position: absolute;
+                color: $color-white-02;
+                font-size: 2vh; // 18px
+                line-height: 4vh;
+                text-align: center;
             }
         }
     }

@@ -6,7 +6,6 @@
 // mixins
 @import "mixins/border-radius";
 @import "mixins/clearfix";
-@import "mixins/font-size";
 @import "mixins/font-smoothing";
 @import "mixins/image-2x";
 @import "mixins/position";
@@ -20,10 +19,12 @@
 // fonts
 @import "fonts/antonio";
 @import "fonts/lato";
+@import "fonts/generated/icons";
 
 // keyframes
 @import "keyframes/fadein";
 @import "keyframes/fadeout";
+@import "keyframes/rotation";
 
 // base
 @import "base/reset";

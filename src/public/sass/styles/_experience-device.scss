@@ -1,0 +1,67 @@
+.experience-device {
+
+    .content-centered {
+        @include size(60vw, 50vh); // 60vw, 500px
+        @include absolute(top 50% right 50%);
+        margin: -25vh -30vw 0 0; // -250px -30vw 0 0
+        text-align: center;
+    }
+
+    .mobile {
+        @include size(50vh);
+        position: absolute;
+
+        svg {
+            @include size(50vh);
+            position: relative;
+            fill: none;
+            stroke: $color-white-10;
+        }
+
+        aside {
+            position: absolute;
+            top: 6vh;
+            right: 50%;
+            margin: 0 -10vh 0 0;
+
+            .qrcode {
+                @include size(20vh);
+                background: red;
+            }
+
+            .separator {
+                width: 15vh;
+                margin: 4vh 0 1vh 2.5vh;
+                border-top: 1px solid $color-white-10;
+            }
+
+            .code {
+                color: $color-white-10;
+                font: 6vh $font-antonio-regular; // 60px
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .box {
+        position: absolute;
+        margin: 3vh 0 0 50vh;
+
+        h1 {
+            margin: 0 0 1vh; // 10px
+            color: $color-white-10;
+            font: 6vh $font-antonio-regular;
+            text-transform: uppercase;
+
+            .top {
+                margin: 0 0 -1.8vh 0; // -20px
+                display: block;
+            }
+        }
+
+        .link-url {
+            font: 36px 'latoregular', sans-serif;
+            border: 1px solid $color-white-10;
+        }
+    }
+}

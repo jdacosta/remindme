@@ -2,26 +2,40 @@ html,
 body {
     @include size(100%);
     position: relative;
+    overflow: hidden;
 }
 
 body {
     @include font-smoothing;
+    box-sizing: border-box;
+    font: 1.4vh $font-lato-regular; // 14px
+    color: $color-white-10;
 }
 
 main {
     @include size(100%);
     position: absolute;
-    background: blue;
 
     .page {
         @include size(100%);
         position: absolute;
         transition: transform 0.5s ease;
         transform: translate3d(100%, 0, 0);
-        background: red;
+        z-index: 1;
 
         &.is-visible {
             transform: translate3d(0, 0, 0);
         }
+    }
+
+    .bg-video {
+        @include size(auto);
+        @include fixed(top 50% left 50%);
+        min-width: 100%;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+        background: url('../img/bg/main.png') no-repeat;
+        background-size: cover;
+        z-index: -100;
     }
 }

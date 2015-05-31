@@ -1,0 +1,36 @@
+.experience-enter {
+
+    .content-centered {
+        @include size(50vw, 50vh); // 800px, 500px
+        @include absolute(top 50% right 50%);
+        margin: -15vh -25vw 0 0; // -150px, -400px
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0 0 1.5vh; // 10px
+        color: $color-white-10;
+        font: 6vh $font-antonio-regular; // 60px
+        text-transform: uppercase;
+
+        .sitename {
+            margin: 0 0 -1.8vh 0; // -20px
+            display: block;
+        }
+    }
+
+    p {
+        color: $color-white-10;
+        font: 2.2vh $font-lato-light; // 24px
+        margin: 0 0 6.2vh; // 64px
+    }
+
+    a {
+        padding: 1.4vh 6vw; // 15px 115px
+        border: 1px solid #7657ff;
+        color: $color-white-10;
+        font: 2.2vh $font-lato-regular; // 24px
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+}
