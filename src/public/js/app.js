@@ -33,6 +33,5 @@ app.Views.NotFound          = require('./views/notfound');
 // routers
 app.Router = require('./routers/router');
 
-
 // launch app
 app.init();

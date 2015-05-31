@@ -7,6 +7,8 @@ module.exports = Backbone.Router.extend({
         'about': 'about',
         'community': 'community',
         'experience/device': 'experienceDevice',
+        'experience/home': 'experienceHome',
+        'experience/load': 'experienceLoading',
         'experience/:id': 'experienceRoom',
         'experience': 'experience',
         '*notfound': 'notfound'
@@ -36,10 +38,20 @@ module.exports = Backbone.Router.extend({
         app.instance.goto(view);
     },
 
+    experienceHome: function () {
+        var view = new app.Views.ExperienceHome();
+        app.instance.goto(view);
+    },
+
+    experienceLoading: function () {
+        var view = new app.Views.ExperienceLoading();
+        app.instance.goto(view);
+    },
+
     experienceRoom: function (id) {
         id = id.toUpperCase();
         if (/^[A-Z0-9]{4}$/.test(id)) {
-            console.log('ENTER ROOM ID ' + id);
+            console.log('New connection, room ID : ' + id);
         } else {
             var view = new app.Views.ExperienceEnter();
             app.instance.goto(view);
