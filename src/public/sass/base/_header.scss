@@ -21,9 +21,9 @@
             @include absolute(top -15vw right 50%); // -3OOpx
             margin: 0 -11vw 0 0; // -215px
             fill: none;
-            stroke: $alzheimer-step1-10;
+            stroke: $color-red-10;
             animation: rotation 300s linear infinite;
-            opacity: .5;
+            //opacity: .5;
         }
     }
 
@@ -41,12 +41,13 @@
                 a {
                     color: $color-white-10;
                     text-decoration: none;
+                    transition: color .5s ease-in-out;
 
                     &.active,
                     &:hover {
-                        color: $alzheimer-step1-10;
+                        color: $color-red-10;
                         padding: 0 0 11px 0;
-                        border-bottom: 3px solid $alzheimer-step1-10;
+                        border-bottom: 3px solid $color-red-10;
                     }
                 }
             }
@@ -62,11 +63,12 @@
             display: block;
             margin: 0 0 15px 0;
             @include border-radius(50%);
-            border: 1px solid $color-white-02;
+            border: 0.2vh solid $color-white-02;
             cursor: pointer;
+            transition: border .5s ease-in-out;
 
             &:hover {
-                border: 1px solid $color-white-10;
+                border: 0.2vh solid $color-white-10;
 
                 .icon {
                     color: $color-white-10;
@@ -78,8 +80,9 @@
                 position: absolute;
                 color: $color-white-02;
                 font-size: 2vh; // 18px
-                line-height: 4vh;
+                line-height: 4.4vh;
                 text-align: center;
+                transition: color .5s ease-in-out;
             }
         }
     }

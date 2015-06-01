@@ -14,6 +14,7 @@
                 a {
                     color: $color-white-02;
                     text-decoration: none;
+                    transition: color .5s ease-in-out;
 
                     &.active,
                     &:hover {
@@ -41,15 +42,16 @@
             display: inline-block;
             margin: 0 7px;
             @include border-radius(50%);
-            border: 1px solid $color-white-02;
+            border: 0.2vh solid $color-white-02;
             cursor: pointer;
+            transition: border .5s ease-in-out;
 
             &:last-child {
                 margin: 0 0 0 7px;
             }
 
             &:hover {
-                border: 1px solid $color-white-10;
+                border: 0.2vh solid $color-white-10;
 
                 .icon {
                     color: $color-white-10;
@@ -61,8 +63,9 @@
                 position: absolute;
                 color: $color-white-02;
                 font-size: 2vh; // 18px
-                line-height: 4vh;
+                line-height: 4.4vh;
                 text-align: center;
+                transition: color .5s ease-in-out;
             }
         }
     }

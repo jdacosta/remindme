@@ -6,66 +6,60 @@
         margin: 0 0 0 -32.5vw;
 
         .circle {
-            @include size(64vh);
-            @include absolute(top 0 right 50%);
-            margin: 0 -32vh 0 0;
             @include border-radius(50%);
-            border: 2px dashed $color-white-01;
             transition: all .6s ease-out;
+            opacity: .2;
             cursor: pointer;
 
             &:hover {
-                border: 2px dashed $color-white-10;
+                opacity: .7;
+                //box-shadow: 0 0 2px $color-white-05;
             }
 
-            .arc {
-                @include absolute(top -3px right 50% left -3px bottom 50%);
-                transform-origin: 100% 100%;
-                overflow: hidden;
-                z-index: 10;
+            &.c1 {
+                @include size(58vh);
+                @include absolute(top 3vh right 50%);
+                margin: 0 -29vh 0 0;
 
-                &.a1 {
-                    transform: rotate(0deg) skewX(0deg);
-                }
-
-                &.a2 {
-                    transform: rotate(90deg) skewX(0deg);
-                }
-
-                &:before {
-                    content: '';
-                    @include size(200%);
+                .arc {
+                    @include size(58vh);
+                    position: absolute;
+                    border-top: 0.8vh solid $color-white-10;
                     @include border-radius(50%);
-                    border: 4px solid red;
-                    display: block;
+                    box-sizing: border-box;
+                    animation: rotation 30s linear infinite;
                 }
             }
 
             &.c2 {
-                @include absolute(top 5vh right 50%);
-                @include size(54vh);
-                margin: 0 -27vh 0 0;
+                @include absolute(top 7.5vh right 50%);
+                @include size(49vh);
+                margin: 0 -24.5vh 0 0;
 
                 .arc {
-                    transform: rotate(0deg) skewX(0deg);
-
-                    &:before {
-                        transform: skewX(-0deg);
-                    }
+                    @include size(49vh);
+                    position: absolute;
+                    border-top: 0.5vh solid $color-white-10;
+                    border-left: 0.5vh solid $color-white-10;
+                    @include border-radius(50%);
+                    box-sizing: border-box;
+                    animation: rotation-inverse 30s linear infinite;
                 }
             }
 
             &.c3 {
-                @include absolute(top 8.5vh right 50%);
-                @include size(47vh);
-                margin: 0 -23.5vh 0 0;
+                @include absolute(top 10vh right 50%);
+                @include size(44vh);
+                margin: 0 -22vh 0 0;
 
                 .arc {
-                    transform: rotate(0deg) skewX(0deg);
-
-                    &:before {
-                        transform: skewX(-0deg);
-                    }
+                    @include size(44vh);
+                    position: absolute;
+                    border-top: 0.6vh solid $color-white-10;
+                    border-left: 0.6vh solid $color-white-10;
+                    @include border-radius(50%);
+                    box-sizing: border-box;
+                    animation: rotation 40s linear infinite;
                 }
             }
 
@@ -75,18 +69,63 @@
                 margin: 0 -18.5vh 0 0;
 
                 .arc {
-                    transform: rotate(0deg) skewX(0deg);
-
-                    &:before {
-                        transform: skewX(-0deg);
-                    }
+                    @include size(37vh);
+                    position: absolute;
+                    border-top: 0.3vh solid $color-white-10;
+                    border-left: 0.3vh solid $color-white-10;
+                    border-bottom: 0.3vh solid $color-white-10;
+                    @include border-radius(50%);
+                    box-sizing: border-box;
+                    animation: rotation-inverse 60s linear infinite;
                 }
             }
 
-            /*&.inner-circle-selected {
-                //border: 2px solid #525353;
-                z-index: 2;
-            }*/
+            &.infos {
+                @include size(34vh);
+                @include absolute(top 15vh right 50%);
+                margin: 0 -17vh 0 0;
+                border: none;
+                background: $color-darkblue-08;
+                text-transform: uppercase;
+                text-align: center;
+                opacity: 1;
+
+                .step {
+                    font: 6vh $font-antonio-bold;
+                    margin: 5vh 0 3vh;
+                }
+
+                .separator {
+                    width: 20vh;
+                    margin: 0.5vh auto 1vh;
+                    border-top: 0.2vh solid $color-white-05;
+                }
+
+                h3 {
+                    font: 3vh $font-antonio-regular;
+                }
+
+                h4 {
+                    width: 24vh;
+                    margin: 0 auto;
+                    font: 1.4vh $font-lato-regular;
+                }
+            }
+        }
+
+        .arrow-prev-floating,
+        .arrow-next-floating {
+            @include size(10vh, 4vh);
+            @include absolute(top 50%);
+            margin: -2vh 0 0 0;
+        }
+
+        .arrow-prev-floating {
+            left: 0;
+        }
+
+        .arrow-next-floating {
+            right: 0;
         }
 
         .arrow {
@@ -94,24 +133,24 @@
             @include absolute(top 50%);
             margin: -2vh 0 0 0;
             background: transparent;
-            border-top: 1px solid $color-white-10;
-            border-left: 1px solid $color-white-10;
-            transition: all .3s ease-in-out;
+            border-top: 1px solid $color-white-05;
+            border-left: 1px solid $color-white-05;
+            transition: all .5s ease-in-out;
             cursor: pointer;
             display: inline-block;
 
             &:hover {
-                border-width: 3px;
+                border-color: $color-white-10;
             }
 
             &.prev {
                 transform: rotate(-45deg);
-                left: 0vw;
+                //left: 0vw;
             }
 
             &.next {
                 transform: rotate(135deg);
-                right: 0vw;
+                //right: 0vw;
             }
         }
     }
@@ -132,35 +171,43 @@
 
             &.s1 {
                 color: $alzheimer-step1-10;
+                text-shadow: 0 0 5px $alzheimer-step1-05;
             }
 
             &.s2 {
                 color: $alzheimer-step2-10;
+                text-shadow: 0 0 5px $alzheimer-step2-05;
             }
 
             &.s3 {
                 color: $alzheimer-step3-10;
+                text-shadow: 0 0 5px $alzheimer-step3-05;
             }
 
             &.s4 {
                 color: $alzheimer-step4-10;
+                text-shadow: 0 0 5px $alzheimer-step4-10;
             }
 
             &.s5 {
                 color: $alzheimer-step5-10;
+                text-shadow: 0 0 5px $alzheimer-step5-05;
             }
 
             &.s6 {
                 color: $alzheimer-step6-10;
+                text-shadow: 0 0 5px $alzheimer-step6-05;
             }
 
             .s7 {
                 color: $alzheimer-step7-10;
+                text-shadow: 0 0 5px $alzheimer-step7-05;
             }
         }
 
         p {
             font: 1.3vh $font-lato-light; // 14px
+            text-shadow: 0 0 5px $color-white-05;
         }
     }
 
@@ -172,7 +219,7 @@
         display: flex;
 
         .container {
-            @include size(10vw, 15vh);
+            @include size(10vw, 6vh);
             position: relative;
             display: flex;
 
@@ -181,55 +228,86 @@
             }
 
             .line {
-                width: 9vw;
-                @include absolute(bottom 0.5vw left 1vw);
-                border-top: 1px solid $color-white-10;
+                width: 9.2vw;
+                @include absolute(bottom 0.4vw left 0.8vw);
+                border-top: 1px solid $color-white-03;
+
+                &:after {
+                    content: '';
+                    width: 0vw;
+                    border-top: 1px solid $color-red-10;
+                    z-index: 300;
+                    @include absolute(top -1px left 0px);
+                }
             }
 
             .step {
                 &:hover {
-                    .name {
+                    .name,
+                    .description {
                         display: block;
                     }
 
                     .bullet {
-                        background: $color-white-10;
+                        border-color: $color-white-10;
                     }
                 }
-            }
 
-            .bullet {
-                @include size(1vw);
-                @include absolute(bottom 0);
-                @include border-radius(50%);
-                box-sizing: border-box;
-                border: 2px solid $color-white-10;
-                display: block;
-                cursor: pointer;
-                z-index: 2;
+                .bullet {
+                    @include size(0.8vw);
+                    @include absolute(bottom 0);
+                    @include border-radius(50%);
+                    box-sizing: border-box;
+                    border: 2px solid $color-white-03;
+                    display: block;
+                    cursor: pointer;
+                    z-index: 2;
 
-                &.active {
-                    background: $color-white-10;
+                    &.active {
+                        @include size(0.6vw);
+                        margin: 0 0 0.1vw 0.1vw;
+                        border: 2px solid transparent;
+                        background: $color-white-07;
+
+                        &:after {
+                            content: '';
+                            @include size(1.6vw);
+                            @include absolute(top 50% left 50%);
+                            margin: -0.8vw 0 0 -0.8vw;
+                            @include border-radius(50%);
+                            border: 2px solid $color-red-10;
+                            box-sizing: border-box;
+                        }
+                    }
+
+                    &.done {
+                        border-color: $color-red-10;
+                        background: $color-red-03;
+                    }
                 }
-            }
 
-            .name {
-                @include size(10vw, 10vh);
-                @include absolute(left -4.5vw);
-                @include border-radius(0.5vh);
-                border: 1px solid $color-white-10;
-                background: $color-white-10;
-                display: none;
+                .name {
+                    width: 10vw;
+                    @include absolute(left -4.5vw);
+                    display: none;
+                    font: 2.5vh $font-antonio-light;
+                    color: $color-white-05;
+                    text-align: center;
+                    text-transform: uppercase;
 
-                &:after {
-                    content: '';
-                    @include size(1.4vh);
-                    @include absolute(bottom -0.9vh left 50%);
-                    margin: 0 0 0 -0.7vh;
-                    transform: rotate(-45deg);
-                    border-bottom: 1px solid $color-white-10;
-                    border-left: 1px solid $color-white-10;
-                    background-color: $color-white-10;
+                    .number {
+                        font: 2.5vh $font-antonio-bold;
+                    }
+                }
+
+                .description {
+                    width: 14vw;
+                    @include absolute(top 7vh left -6.5vw);
+                    display: none;
+                    font: 1vh $font-lato-light;
+                    color: $color-white-10;
+                    text-align: center;
+                    text-transform: uppercase;
                 }
             }
         }

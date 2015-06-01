@@ -1,9 +1,9 @@
 .experience-loading {
 
     .content-centered {
-        @include size(60vw, 60vh);
+        @include size(60vw, 64vh);
         @include absolute(top 50% right 50%);
-        margin: -30vh -30vw 0 0;
+        margin: -32vh -30vw 0 0;
         text-align: center;
     }
 
@@ -12,13 +12,12 @@
     }
 
     .icons {
-        margin: 45vh 0 0 0;
+        margin: 48vh 0 0 0;
         li {
             margin: 2vh 0.7vw;
             display: inline-block;
             color: $color-white-10;
             font-size: 3vh;
-            background: red;
         }
     }
 
@@ -27,14 +26,14 @@
         @include absolute(top 0 right 50%);
         margin: 0 -22.5vh 0 0;
         fill: none;
-        stroke: #ff6860;
+        stroke: $color-red-10;
         animation: rotation 30s linear infinite;
     }
 
     .progress-bar {
         @include size(60vw, 0.6vh); // 60vw, 7px
         @include absolute(bottom 0 left 0);
-        border-top: 1px solid #cf352d;
+        border-top: 0.2vh solid #cf352d;
         background: #972729;
     }
 }

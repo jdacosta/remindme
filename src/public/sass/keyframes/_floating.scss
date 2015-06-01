@@ -1,0 +1,37 @@
+@keyframes arrow-prev-floating {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes arrow-next-floating {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.arrow-prev-floating,
+.arrow-next-floating {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.arrow-prev-floating {
+    animation-name: arrow-prev-floating;
+}
+
+.arrow-next-floating {
+    animation-name: arrow-next-floating;
+}
