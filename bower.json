@@ -1,0 +1,11 @@
+{
+  "name": "RemindMe",
+  "version": "1.0.0",
+  "homepage": "https://remindme.fr",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "createjs-preloadjs": "latest",
+    "createjs-soundjs": "latest"
+  }
+}
