@@ -1,5 +1,8 @@
-var Handlebars = require('hbsfy/runtime');
-var template   = require('./../../views/about.hbs');
+var Handlebars      = require('hbsfy/runtime');
+var template        = require('./../../views/about.hbs');
+var notificationHbs = require('./../../views/partials/notification.hbs');
+
+Handlebars.registerPartial('notification', notificationHbs);
 
 module.exports = app.Extensions.View.extend({
 
