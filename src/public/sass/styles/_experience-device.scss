@@ -3,7 +3,7 @@
     .content-centered {
         @include size(60vw, 50vh); // 60vw, 500px
         @include absolute(top 50% right 50%);
-        margin: -25vh -30vw 0 0; // -250px -30vw 0 0
+        margin: -20vh -30vw 0 0; // -250px -30vw 0 0
         text-align: center;
     }
 
@@ -60,7 +60,10 @@
         }
 
         .link-url {
-            font: 36px 'latoregular', sans-serif;
+            width: 70%;
+            margin: 0 auto;
+            padding: 0.5vh 0;
+            font: 3vh $font-lato-regular;
             border: 1px solid $color-white-10;
         }
     }

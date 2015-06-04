@@ -21,9 +21,8 @@
             @include absolute(top -15vw right 50%); // -3OOpx
             margin: 0 -11vw 0 0; // -215px
             fill: none;
-            stroke: $color-red-10;
+            stroke: $color-white-05;
             animation: rotation 300s linear infinite;
-            //opacity: .5;
         }
     }
 
@@ -41,7 +40,7 @@
                 a {
                     color: $color-white-10;
                     text-decoration: none;
-                    transition: color .5s ease-in-out;
+                    transition: color .3s ease-in-out;
 
                     &.active,
                     &:hover {
@@ -56,12 +55,18 @@
 
     .social {
         @include absolute(top 16vh right 7vh);
+        opacity: 1;
+        transition: opacity 1s linear;
+
+        &.hidden {
+            opacity: 0;
+        }
 
         .button {
             @include size(4vh); // 40 px
             position: relative;
             display: block;
-            margin: 0 0 15px 0;
+            margin: 0 0 1.4vh 0;
             @include border-radius(50%);
             border: 0.2vh solid $color-white-02;
             cursor: pointer;

@@ -1,0 +1,74 @@
+.notification {
+    @include absolute(bottom 10vh right 15.5vh);
+    margin: 0 -2.25vh 0 0;
+
+    svg {
+        @include size(4.5vh);
+        fill: none;
+
+        .phone-border {
+            fill: $color-white-03;
+        }
+    }
+
+    &.action {
+        svg {
+            .phone-border {
+                fill: $color-white-07;
+            }
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            @include size(6vh);
+            @include absolute(top 50% left 50%);
+            @include border-radius(50%);
+            margin: -3vh 0 0 -3vh;
+            box-shadow: 0 0 0.1vh 0.1vh $color-red-10, inset 0 0 0.1vh 0.1vh $color-red-10;
+            opacity: 0;
+            animation-name: notification-effect-1, notification-effect-2;
+            animation-duration: 1.8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        &:after {
+            animation-delay: 0.6s;
+        }
+    }
+
+    &.action-error {
+        svg {
+            .phone-border {
+                fill: $color-red-03;
+            }
+        }
+
+        &:before {
+            content: '';
+            @include size(6vh);
+            @include absolute(top 50% left 50%);
+            @include border-radius(50%);
+            margin: -3vh 0 0 -3vh;
+            box-shadow: 0 0 0.1vh 0.1vh $color-red-10, inset 0 0 0.1vh 0.1vh $color-red-10;
+            opacity: 0;
+            animation-name: notification-effect-1, notification-effect-2;
+            animation-duration: 2.8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    .error {
+        @include size(5vh);
+        @include absolute(top 50% left 50%);
+        margin: -1vh 0 0 -4.3vh;
+        background: transparent;
+        border-top: 0.2vh solid $color-white-07;
+        transform: rotate(45deg);
+        display: none;
+    }
+}

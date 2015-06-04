@@ -1,0 +1,146 @@
+.experience-statistics {
+
+    h1 {
+        margin: 20vh 0 1vh;
+        color: $color-white-10;
+        font: 6vh $font-antonio-regular;
+        text-transform: uppercase;
+        text-align: center;
+
+        .top {
+            margin: 0 0 -1.8vh 0;
+            display: block;
+        }
+    }
+
+    .timeline {
+        width: 60vw;
+        @include absolute(bottom 25vh right 50%);
+        margin: 0 -30vw 0 0;
+        display: flex;
+
+        .container {
+            @include size(10vw, 6vh);
+            position: relative;
+            display: flex;
+
+            &.c9 {
+                width: 1vw;
+            }
+
+            .line {
+                width: 6.6vw;
+                @include absolute(bottom 0.4vw left 0.8vw);
+                border-top: 1px solid $color-white-03;
+
+                &:after {
+                    content: '';
+                    width: 0vw;
+                    border-top: 1px solid $color-red-10;
+                    z-index: 300;
+                    @include absolute(top -1px left 0px);
+                }
+            }
+
+            .step {
+                &:hover {
+                    header,
+                    footer {
+                        display: block;
+                    }
+
+                    .bullet {
+                        border-color: $color-white-10;
+                    }
+                }
+
+                header,
+                footer {
+                    display: block;
+                    width: 30vw;
+
+                    p {
+                        font: 1.6vh $font-lato-light;
+                    }
+                }
+
+                header {
+                    height: 10vw;
+                    @include relative(top -8.5vw left -14.6vw);
+
+                    .info-left,
+                    .info-right {
+                        @include size(10vw, 8vw);
+                        background: green;
+
+                        .number {
+                            margin: 0.5vh 0;
+                            font: 3.5vh $font-lato-italic;
+                        }
+                    }
+
+                    .info-left {
+                        @include absolute(top 0 left 0);
+                    }
+
+                    .info-right {
+                        @include absolute(top 0 right 0);
+                    }
+
+                    .image {
+                        @include size(8vw);
+                        @include absolute(top 0 left 50%);
+                        margin: 0 0 0 -4vw;
+                        @include border-radius(50%);
+                        border: 0.4vh solid $color-red-10;
+                        background: url('../img/test-statistics.jpg') center center;
+                    }
+                }
+
+                footer {
+                    @include absolute(top 9vh left -14.6vw);
+                    text-align: center;
+
+                    h3 {
+                        font: 2.5vh $font-antonio-regular;
+                        color: $color-red-10;
+                        text-transform: uppercase;
+                    }
+                }
+
+                .bullet {
+                    @include size(0.8vw);
+                    @include absolute(bottom 0);
+                    @include border-radius(50%);
+                    box-sizing: border-box;
+                    border: 2px solid $color-white-03;
+                    display: block;
+                    cursor: pointer;
+                    z-index: 2;
+
+                    &.active {
+                        @include size(0.6vw);
+                        margin: 0 0 0.1vw 0.1vw;
+                        border: 2px solid transparent;
+                        background: $color-white-07;
+
+                        &:after {
+                            content: '';
+                            @include size(1.6vw);
+                            @include absolute(top 50% left 50%);
+                            margin: -0.8vw 0 0 -0.8vw;
+                            @include border-radius(50%);
+                            border: 2px solid $color-red-10;
+                            box-sizing: border-box;
+                        }
+                    }
+
+                    &.done {
+                        border-color: $color-red-10;
+                        background: $color-red-03;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -27,15 +27,23 @@ main {
             transform: translate3d(0, 0, 0);
         }
     }
+}
 
-    .bg-video {
-        @include size(auto);
-        @include fixed(top 50% left 50%);
-        min-width: 100%;
-        min-height: 100%;
-        transform: translateX(-50%) translateY(-50%);
-        background: url('../img/bg/main.png') no-repeat;
-        background-size: cover;
-        z-index: -100;
-    }
+.bg-video {
+    @include size(auto);
+    @include fixed(top 50% left 50%);
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('../img/bg/main.png') no-repeat;
+    background-size: cover;
+    z-index: -100;
+}
+
+.color-filter {
+    @include size(auto);
+    min-width: 100%;
+    min-height: 100%;
+    background: $color-black-02;
+    z-index: -90;
 }

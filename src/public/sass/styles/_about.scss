@@ -1,3 +1,200 @@
 .about {
+    .navigation {
+        @include size(65vw, 64vh);
+        @include relative(top 18vh left 50%);
+        margin: 0 0 0 -32.5vw;
 
+        .circle {
+            @include border-radius(50%);
+
+            .arc {
+                position: absolute;
+                @include border-radius(50%);
+                box-sizing: border-box;
+                transition: all .6s ease-out;
+                opacity: .2;
+                cursor: pointer;
+
+                &.active {
+                    opacity: 1;
+                    animation: none;
+                }
+            }
+
+            &:hover {
+                .arc {
+                    opacity: .7;
+
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &.c1 {
+                @include size(50vh);
+                @include absolute(top 7vh right 50%);
+                margin: 0 -25vh 0 0;
+                //background: red;
+
+                .arc {
+                    @include size(50vh);
+                    border-top: 0.8vh solid $color-white-10;
+                    animation: rotation 30s linear infinite;
+
+                    &.active {
+                        border: 0.5vh solid $alzheimer-step7-10;
+                        box-shadow: inset 0 0 0.3vh 0.1vh $alzheimer-step7-08, 0 0 0.3vh 0.1vh $alzheimer-step7-08;
+                    }
+                }
+            }
+
+            &.c2 {
+                @include absolute(top 10vh right 50%);
+                @include size(44vh);
+                margin: 0 -22vh 0 0;
+
+                .arc {
+                    @include size(44vh);
+                    border-top: 0.6vh solid $color-white-10;
+                    border-left: 0.6vh solid $color-white-10;
+                    animation: rotation 40s linear infinite;
+
+                    &.active {
+                        border: 0.6vh solid $alzheimer-step4-10;
+                        box-shadow: inset 0 0 0.4vh 0.1vh $alzheimer-step4-08, 0 0 0.4vh 0.1vh $alzheimer-step4-08;
+                    }
+                }
+            }
+
+            &.c3 {
+                @include absolute(top 13.5vh right 50%);
+                @include size(37vh);
+                margin: 0 -18.5vh 0 0;
+
+                .arc {
+                    @include size(37vh);
+                    border-top: 0.3vh solid $color-white-10;
+                    border-left: 0.3vh solid $color-white-10;
+                    border-bottom: 0.3vh solid $color-white-10;
+                    animation: rotation-inverse 60s linear infinite;
+
+                    &.active {
+                        border: 0.3vh solid $alzheimer-step3-10;
+                        box-shadow: inset 0 0 0.2vh 0.1vh $alzheimer-step3-08, 0 0 0.2vh 0.1vh $alzheimer-step3-08;
+                    }
+                }
+            }
+
+            &.infos {
+                @include size(34vh);
+                @include absolute(top 15vh right 50%);
+                margin: 0 -17vh 0 0;
+                border: none;
+                background: $color-white-08;
+                color: $color-red-10;
+                text-align: center;
+                opacity: 1;
+
+                .step {
+                    font: 6vh $font-antonio-bold;
+                    margin: 4.5vh 0 3vh;
+                    line-height: 10vh;
+                }
+
+                .separator {
+                    width: 20vh;
+                    margin: 0.5vh auto 1vh;
+                    border-top: 0.2vh solid $color-red-10;
+                }
+
+                h3 {
+                    font: 3vh $font-antonio-regular;
+                    text-transform: uppercase;
+                }
+
+                h4 {
+                    width: 24vh;
+                    margin: 0 auto;
+                    font: 1.4vh $font-lato-regular;
+                }
+
+                svg {
+                    @include size(10vh);
+                    @include absolute(top 4.5vh left 50%);
+                    margin: 0 0 0 -5vh;
+                    fill: none;
+                    stroke: $color-red-10;
+                }
+            }
+        }
+
+        .nav-arrow {
+            .arrow-prev-floating,
+            .arrow-next-floating {
+                @include size(10vh, 4vh);
+                @include absolute(top 50%);
+                margin: -2vh 0 0 0;
+            }
+
+            .arrow-prev-floating {
+                left: 0;
+            }
+
+            .arrow-next-floating {
+                right: 0;
+            }
+
+            .arrow {
+                @include size(4vh);
+                @include absolute(top 50%);
+                margin: -2vh 0 0 0;
+                background: transparent;
+                border-top: 2px solid $color-white-05;
+                border-left: 2px solid $color-white-05;
+                transition: all .5s ease-in-out;
+                cursor: pointer;
+                display: inline-block;
+
+                &:hover {
+                    border-color: $color-white-10;
+                }
+
+                &.prev {
+                    transform: rotate(-45deg);
+                    left: 0vw;
+                }
+
+                &.next {
+                    transform: rotate(135deg);
+                    right: 0vw;
+                }
+            }
+        }
+
+        .current-selector {
+            @include relative(top 62vh);
+            text-align: center;
+
+            .bullet {
+                @include size(1.5vh);
+                @include border-radius(50%);
+                margin: 0 0.5vh;
+                box-sizing: border-box;
+                border: 0.3vh solid $color-white-05;
+                display: inline-block;
+                cursor: pointer;
+                transition: border .5s ease-in-out;
+
+                &:hover {
+                    border-color: $color-white-10;
+                }
+
+                &.active {
+                    border: none;
+                    background: $color-white-05;
+                }
+            }
+        }
+    }
 }

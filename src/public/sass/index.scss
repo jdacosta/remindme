@@ -25,6 +25,7 @@
 @import "keyframes/fadein";
 @import "keyframes/fadeout";
 @import "keyframes/floating";
+@import "keyframes/notification";
 @import "keyframes/rotation";
 
 // base
@@ -36,9 +37,13 @@
 // styles
 @import "styles/about";
 @import "styles/community";
+@import "styles/experience-challenge";
 @import "styles/experience-device";
 @import "styles/experience-enter";
+@import "styles/experience-exit";
 @import "styles/experience-home";
 @import "styles/experience-loading";
+@import "styles/experience-statistics";
 @import "styles/notfound";
+@import "styles/notification";
 

@@ -5,6 +5,12 @@
 
     nav {
         margin: 0 7vh;
+        opacity: 1;
+        transition: opacity 1s linear;
+
+        &.hidden {
+            opacity: 0;
+        }
 
         ul {
             li {
@@ -35,19 +41,25 @@
 
     .gui-controls {
         @include absolute(bottom 2vh right 7vh);
+        opacity: 1;
+        transition: opacity 1s linear;
+
+        &.hidden {
+            opacity: 0;
+        }
 
         .button {
             @include size(4vh); // 40 px
             position: relative;
             display: inline-block;
-            margin: 0 7px;
+            margin: 0 0.7vh; // 7px
             @include border-radius(50%);
             border: 0.2vh solid $color-white-02;
             cursor: pointer;
             transition: border .5s ease-in-out;
 
             &:last-child {
-                margin: 0 0 0 7px;
+                margin: 0 0 0 0.7vh;
             }
 
             &:hover {
