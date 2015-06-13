@@ -17,7 +17,6 @@ module.exports = app.Extensions.View.extend({
         this.$el.prepend( next.$el );
         next.transitionIn();
         this.currentPage = next;
-
         $(document).trigger('PAGE_UPDATED');
     }
 });

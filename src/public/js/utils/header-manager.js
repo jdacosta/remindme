@@ -1,31 +1,47 @@
 var $ = require('jquery');
-var _ = require('lodash');
 
 
-HeaderNavigation = function () {
+HeaderManager = function () {
 
-    // define attributes
+    // attributes
     this.currentPage = null;
 
-    // define elements
+    // elements
     this.$document = null;
+    this.$window = null;
+    this.$activeItem = null;
     this.$itemsNavigation = null;
-    this.$itemExperience = null;
     this.$itemAbout = null;
     this.$itemCommunity = null;
+    this.$itemExperience = null;
+    this.$itemLine = null;
 
-    // define attributes
+    // initialize
      this.init();
 };
 
-HeaderNavigation.prototype = {
+HeaderManager.prototype = {
 
     init: function () {
+
+        // initialize elements
         this.$document = $(document);
-        this.$itemsNavigation = $('.gui-header nav li');
-        this.$itemExperience = $('.experience', this.$itemsNavigation);
+        this.$window = $(window);
+        this.$itemsNavigation = $('.gui-header nav');
         this.$itemAbout = $('.about', this.$itemsNavigation);
         this.$itemCommunity = $('.community', this.$itemsNavigation);
+        this.$itemExperience = $('.experience', this.$itemsNavigation);
+        this.$itemLine = $('.line', this.$itemsNavigation);
+
+        // events
+        this.$document.on('PAGE_UPDATED', { _this: this }, function( event ) {
+            event.data._this.updateHeader();
+        });
+        this.$window.on('resize', { _this: this }, function( event ) {
+            event.data._this.updateLineBar();
+        });
+
+        // run
         this.updateHeader();
     },
 
@@ -43,7 +59,6 @@ HeaderNavigation.prototype = {
         if (/^experience-[a-zA-Z]{1,}$/.test(this.currentPage)) {
             this.cleanNavivation();
             this.$itemExperience.addClass('active');
-
         } else if (/^about$/.test(this.currentPage)) {
             this.cleanNavivation();
             this.$itemAbout.addClass('active');
@@ -52,15 +67,16 @@ HeaderNavigation.prototype = {
             this.$itemCommunity.addClass('active');
         }
 
-       /* _.delay(function (self) {
-            self.updateHeader();
-        }, 500, this);*/
+        this.updateLineBar();
+    },
 
-        var self = this;
-        this.$document.on('PAGE_UPDATED', function( event ) {
-            self.updateHeader();
+    updateLineBar: function () {
+        this.$activeItem = $('.active', this.$itemsNavigation);
+        this.$itemLine.animate({
+            left: this.$activeItem.parent().position().left,
+            width: this.$activeItem.parent().width()
         });
     }
 };
 
-module.exports = HeaderNavigation;
+module.exports = HeaderManager;

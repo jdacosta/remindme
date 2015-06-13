@@ -1,9 +1,9 @@
 var Handlebars = require('hbsfy/runtime');
-var template   = require('./../../views/experience-loading.hbs');
+var template   = require('./../../../views/mobile/experience.hbs');
 
 module.exports = app.Extensions.View.extend({
 
-    className: 'experience-loading',
+    className: 'mobile-experience',
 
     render: function () {
         document.title = 'Découvrer la maladie d\'Alzheimer • Remind Me';

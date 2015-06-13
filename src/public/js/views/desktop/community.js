@@ -1,12 +1,12 @@
 var Handlebars = require('hbsfy/runtime');
-var template   = require('./../../views/experience-statistics.hbs');
+var template   = require('./../../../views/desktop/community.hbs');
 
 module.exports = app.Extensions.View.extend({
 
-    className: 'experience-statistics',
+    className: 'community',
 
     render: function () {
-        document.title = 'Découvrer la maladie d\'Alzheimer • Remind Me';
+        document.title = 'Communauté • Remind Me';
         this.$el.html(template());
         return app.Extensions.View.prototype.render.apply(this, arguments);
     }

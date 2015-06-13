@@ -2,24 +2,24 @@ var screenfull = require('screenfull');
 var $          = require('jquery');
 
 
-Fullscreen = function () {
+FullscreenManager = function () {
 
-    // define attributes
-    this.$element = null;
+    // define element
+    this.$fullscreen = null;
 
     // initialize
     this.init();
 };
 
-Fullscreen.prototype = {
+FullscreenManager.prototype = {
 
     init: function () {
-        this.$element = $('.gui-footer .button-fullscreen');
+        this.$fullscreen = $('.gui-footer .button-fullscreen');
         this.setFullscreen();
     },
 
     setFullscreen: function () {
-        this.$element.click(function () {
+        this.$fullscreen.on('click', function () {
             if (screenfull.enabled) {
                 screenfull.toggle();
             }
@@ -27,4 +27,4 @@ Fullscreen.prototype = {
     }
 };
 
-module.exports = Fullscreen;
+module.exports = FullscreenManager;

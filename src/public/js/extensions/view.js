@@ -23,7 +23,7 @@ module.exports = Backbone.View.extend({
 
         var transitionIn = function () {
             view.$el.addClass('is-visible');
-            view.$el.one('transitionend', function () {
+            view.$el.one('animationend', function () {
                 if (_.isFunction(callback)) {
                     callback();
                 }
@@ -37,8 +37,8 @@ module.exports = Backbone.View.extend({
 
         var view = this;
 
-        view.$el.removeClass('is-visible');
-        view.$el.one('transitionend', function () {
+        view.$el.removeClass('is-visible').addClass('is-hidden');
+        view.$el.one('animationend', function () {
             if (_.isFunction(callback)) {
                 callback();
             }

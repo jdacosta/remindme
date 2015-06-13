@@ -1,9 +1,9 @@
 var Handlebars      = require('hbsfy/runtime');
-var template        = require('./../../views/experience-home.hbs');
-var stepinfosHbs    = require('./../../views/partials/step-infos.hbs');
-var timelineHbs     = require('./../../views/partials/timeline.hbs');
-var notificationHbs = require('./../../views/partials/notification.hbs');
-var navigationHbs   = require('./../../views/partials/navigation.hbs');
+var template        = require('./../../../views/desktop/experience-home.hbs');
+var stepinfosHbs    = require('./../../../views/desktop/partials/step-infos.hbs');
+var timelineHbs     = require('./../../../views/desktop/partials/timeline.hbs');
+var notificationHbs = require('./../../../views/desktop/partials/notification.hbs');
+var navigationHbs   = require('./../../../views/desktop/partials/navigation.hbs');
 
 Handlebars.registerPartial('stepinfos', stepinfosHbs);
 Handlebars.registerPartial('timeline', timelineHbs);

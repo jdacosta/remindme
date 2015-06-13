@@ -1,9 +1,9 @@
 var Handlebars = require('hbsfy/runtime');
-var template   = require('./../../views/experience-challenge.hbs');
+var template   = require('./../../../views/desktop/experience-enter.hbs');
 
 module.exports = app.Extensions.View.extend({
 
-    className: 'experience-challenge',
+    className: 'experience-enter',
 
     render: function () {
         document.title = 'Découvrer la maladie d\'Alzheimer • Remind Me';

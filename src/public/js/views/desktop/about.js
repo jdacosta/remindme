@@ -1,6 +1,6 @@
 var Handlebars      = require('hbsfy/runtime');
-var template        = require('./../../views/about.hbs');
-var notificationHbs = require('./../../views/partials/notification.hbs');
+var template        = require('./../../../views/desktop/about.hbs');
+var notificationHbs = require('./../../../views/desktop/partials/notification.hbs');
 
 Handlebars.registerPartial('notification', notificationHbs);
 

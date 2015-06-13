@@ -12,7 +12,6 @@ module.exports = Backbone.Router.extend({
         'experience/home': 'experienceHome',
         'experience/load': 'experienceLoading',
         'experience/statistics': 'experienceStatistics',
-        'experience/:id': 'experienceRoom',
         'experience': 'experience',
         '*notfound': 'notfound'
     },
@@ -61,23 +60,13 @@ module.exports = Backbone.Router.extend({
         app.instance.goto(view);
     },
 
-    experienceRoom: function (id) {
-        id = id.toUpperCase();
-        if (/^[A-Z0-9]{4}$/.test(id)) {
-            console.log('New connection, room ID : ' + id);
-        } else {
-            var view = new app.Views.ExperienceEnter();
-            app.instance.goto(view);
-        }
-    },
-
     experienceStatistics: function () {
         var view = new app.Views.ExperienceStatistics();
         app.instance.goto(view);
     },
 
     notfound: function (notfound) {
-        var view = new app.Views.NotFound();
+        var view = new app.Views.ExperienceEnter();
         app.instance.goto(view);
     }
 });

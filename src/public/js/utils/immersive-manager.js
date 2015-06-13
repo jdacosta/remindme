@@ -2,15 +2,15 @@ var $ = require('jquery');
 var _ = require('lodash');
 
 
-DisplayElements = function () {
+ImmersiveManager = function () {
 
-    // define attributes
+    // attributes
     this.currentPage = null;
     this.isMoved   = false;
     this.isHidden  = false;
     this.iteration = 0;
 
-    // define elements
+    // elements
     this.$document       = null;
     this.$headerSocial   = null;
     this.$footerLinks    = null;
@@ -20,19 +20,22 @@ DisplayElements = function () {
     this.init();
 };
 
-DisplayElements.prototype = {
+ImmersiveManager.prototype = {
 
     init: function () {
+
+        // initialize elements
         this.$document       = $(document);
         this.$headerSocial   = $('.gui-header .social');
         this.$footerLinks    = $('.gui-footer nav');
         this.$footerControls = $('.gui-footer .gui-controls');
 
-        var self = this;
-        this.$document.mousemove(function (event) {
-            self.isMoved = true;
+        // events
+        this.$document.on('mousemove', { _this: this }, function (event) {
+            event.data._this.isMoved = true;
         });
 
+        // run
         this.displayManager();
     },
 
@@ -83,4 +86,4 @@ DisplayElements.prototype = {
     }
 };
 
-module.exports = DisplayElements;
+module.exports = ImmersiveManager;

@@ -1,12 +1,12 @@
 var Handlebars = require('hbsfy/runtime');
-var template   = require('./../../views/community.hbs');
+var template   = require('./../../../views/mobile/tutorial.hbs');
 
 module.exports = app.Extensions.View.extend({
 
-    className: 'community',
+    className: 'mobile-tutorial',
 
     render: function () {
-        document.title = 'Communauté • Remind Me';
+        document.title = 'Découvrer la maladie d\'Alzheimer • Remind Me';
         this.$el.html(template());
         return app.Extensions.View.prototype.render.apply(this, arguments);
     }
