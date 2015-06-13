@@ -2,7 +2,6 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#000219">
     <title>Remind Me</title>
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
@@ -11,7 +10,7 @@
     <!-- // HEADER // -->
     <header class="gui-header">
         <div class="logo">
-            <svg class="logo-circle" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <svg id="logo-circle" class="logo-circle" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
                 <circle stroke-width="0.2" stroke-miterlimit="10" cx="64" cy="64" r="63.5"></circle>
                 <circle stroke-width="0.2" stroke-miterlimit="10" cx="64.5" cy="64" r="36.3"></circle>
                 <polygon stroke-width="0.2" stroke-miterlimit="10" points="90.3,89.8 64.7,100.4 39.1,89.8 28.5,64.1 39.1,38.5 64.7,28 90.3,38.6 100.9,64.2"></polygon>
@@ -117,6 +116,7 @@
         </div>
         <nav>
             <ul>
+                <li class="line"></li>
                 <li><a href="#/" class="experience active">Expérience</a></li>
                 <li><a href="#/about" class="about">À propos</a></li>
                 <li><a href="#/community" class="community">Communauté</a></li>
@@ -124,8 +124,8 @@
         </nav>
         <section class="social">
             <ul>
-                <li class="button button-facebook"><i class="icon icon-facebook"></i></li>
-                <li class="button button-twitter"><i class="icon icon-twitter"></i></li>
+                <li data-play-hover="controls-hover" class="button button-facebook"><i class="icon icon-facebook"></i></li>
+                <li data-play-hover="controls-hover" class="button button-twitter"><i class="icon icon-twitter"></i></li>
             </ul>
         </section>
     </header>
@@ -148,13 +148,13 @@
         </nav>
         <div class="gui-controls">
             <ul>
-                <li class="button button-fullscreen">
+                <li data-play-hover="controls-hover" class="button button-fullscreen">
                     <i class="icon icon-fullscreen"></i>
                 </li>
-                <li class="button button-sound">
+                <li data-play-hover="controls-hover" class="button button-sound">
                     <i class="icon icon-sound-on"></i>
                 </li>
-                <li class="button button-language">
+                <li data-play-hover="controls-hover" class="button button-language">
                     <i class="icon icon-lang-en"></i>
                 </li>
             </ul>
@@ -164,7 +164,7 @@
 
 
     <!-- // EXPERIENCE VIDEO // -->
-    <video autoplay loop class="bg-video">
+    <video autoplay loop class="bg-video is-visible">
         <source src="assets/videos/background.mp4" type="video/mp4">
     </video>
     <div class="color-filter"></div>
@@ -173,14 +173,15 @@
 
     <!-- // SCRIPTS // -->
     <script src="/socket.io/socket.io.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app-desktop.js"></script>
     <script>
         (function () {
-            var socket = io.connect('http://localhost:1338');
+            var socket = io.connect(app.Config.socket.url);
             socket.emit('newHosting');
-            /*socket.on('newConnectionID', function (data) {
-                console.log(data);
-            });*/
+            socket.on('newConnectionID', function (data) {
+                app.Config.socket.connectionId = data.connectionId;
+                app.Config.socket.mySocketId = data.mySocketId;
+            });
         })();
     </script>
     <!-- // SCRIPTS // -->

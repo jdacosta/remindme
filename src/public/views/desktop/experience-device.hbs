@@ -1,7 +1,7 @@
 <div class="content-centered">
 
     <div class="mobile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+        <svg id="device-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
             <path stroke-width="0.5" stroke-miterlimit="10" d="M94.1,126.9H33.9c-2.4,0-4.4-2-4.4-4.4V5.5
         c0-2.4,2-4.4,4.4-4.4h60.3c2.4,0,4.4,2,4.4,4.4v117C98.5,124.9,96.5,126.9,94.1,126.9z"></path>
             <rect x="33.7" y="8.2" stroke-width="0.5" stroke-miterlimit="10" width="60.6" height="97.7"></rect>
@@ -10,14 +10,14 @@
         <aside>
             <div class="qrcode"></div>
             <div class="separator"></div>
-            <div class="code">CF34</div>
+            <div class="code">{{ codeId }}</div>
         </aside>
     </div>
 
     <div class="box">
         <h1><span class="top">Vous avez un smartphone</span> ou une tablette ?</h1>
-        <p>Flashez notre QR Code</p>
-        <p>Ou rendez-vous sur ce lien directement à partir de votre appareil mobile</p>
-        <div class="link-url">http://remindme.fr/12DE</div>
+        <p class="text-flash">Flashez notre QR Code !</p>
+        <p class="text-link">Vous n'avez pas de lecteur QR Code ?<br/> Rendez-vous à l'adresse ci-dessous, à partir de votre appareil mobile</p>
+        <div class="link-url">{{ url }}{{ codeId }}</div>
     </div>
 </div>
