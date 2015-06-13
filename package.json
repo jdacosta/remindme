@@ -16,11 +16,17 @@
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",
+    "jquery-qrcode": "./bower_components/jquery-qrcode/dist/jquery.qrcode.js",
+    "preloadjs": "./bower_components/createjs-preloadjs/lib/preloadjs-0.6.1.combined.js",
+    "soundjs": "./bower_components/createjs-soundjs/lib/soundjs-0.6.1.combined.js",
     "three": "./node_modules/three/three.js",
     "vivus": "./node_modules/vivus/dist/vivus.js"
   },
   "browserify-shim": {
     "jquery": "$",
+    "jquery-qrcode": "qrcode",
+    "preloadjs": "createjs.PreloadJS",
+    "soundjs": "createjs",
     "three": "global:THREE",
     "vivus": "Vivus"
   },
