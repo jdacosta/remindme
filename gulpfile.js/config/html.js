@@ -1,7 +1,7 @@
 var config = require('./');
 
 module.exports = {
-    src: config.sourceAssets + '/index.html',
+    src: config.sourceAssets + '/*.html',
     dest: config.publicDirectory,
     minify: {
         empty: true,

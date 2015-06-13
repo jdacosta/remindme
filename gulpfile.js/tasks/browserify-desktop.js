@@ -8,14 +8,14 @@ var assign       = require('lodash.assign');
 var buffer       = require('vinyl-buffer');
 var source       = require('vinyl-source-stream');
 var watchify     = require('watchify');
-var config       = require('../config/browserify');
+var config       = require('../config/browserify-desktop');
 var maps         = require('../config/sourcemaps');
 var handleErrors = require('../lib/handleErrors');
 
 var opts = assign({}, watchify.args, config.browserify);
 var bwatch = watchify(browserify(opts));
 
-gulp.task('browserify', bundle);
+gulp.task('browserify-desktop', bundle);
 bwatch.on('update', bundle);
 bwatch.on('log', gutil.log);
 
