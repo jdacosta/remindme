@@ -20,17 +20,17 @@ function init (socketio) {
 
 function newHosting (socket) {
 
-    var connectionID = Math.random().toString(36).substr(2, 4).toUpperCase(),
-        room = io.sockets.adapter.rooms[connectionID];
+    var connectionId = Math.random().toString(36).substr(2, 4).toUpperCase(),
+        room = io.sockets.adapter.rooms[connectionId];
 
     if (room === undefined) {
         socket.emit('newConnectionID', {
-            connectionID: connectionID,
+            connectionId: connectionId,
             mySocketId: socket.id
         });
-        socket.join(connectionID);
+        socket.join(connectionId);
 
-        console.log('New hosting created : ' + connectionID);
+        console.log('New hosting created : ' + connectionId);
 
         // we create new DeviceConnection
         //deviceConnections[connectionID] = new DeviceConnection(connectionID, onConnectionReadyCallback);

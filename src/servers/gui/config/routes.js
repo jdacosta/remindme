@@ -1,10 +1,14 @@
 // load all modules
-var Static = require('./static');
+var StaticDesktop = require('./static-desktop');
+var StaticMobile  = require('./static-mobile');
 
 // API server endpoints
 exports.endpoints = [
 
-    // --- static ---
-    { method: 'GET', path: '/{static*}', config: Static.get }
+    // --- mobile ---
+    { method: 'GET', path: '/m/{static*}', config: StaticMobile.get },
+
+    // --- desktop ---
+    { method: 'GET', path: '/{static*}', config: StaticDesktop.get }
 
 ];
