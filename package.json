@@ -27,7 +27,7 @@
     "jquery-qrcode": "qrcode",
     "preloadjs": "createjs.PreloadJS",
     "soundjs": "createjs",
-    "three": "global:THREE",
+    "three": "THREE",
     "vivus": "Vivus"
   },
   "browserify": {
