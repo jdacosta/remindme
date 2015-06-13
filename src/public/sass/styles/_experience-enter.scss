@@ -8,7 +8,8 @@
     }
 
     h1 {
-        margin: 0 0 1.5vh; // 10px
+        //margin: 0 0 1.5vh; // 10px
+        margin: 0;
         color: $color-white-10;
         font: 6vh $font-antonio-regular; // 60px
         text-transform: uppercase;
@@ -22,15 +23,25 @@
     p {
         color: $color-white-10;
         font: 2.2vh $font-lato-light; // 24px
-        margin: 0 0 6.2vh; // 64px
+        //margin: 0 0 6.2vh; // 64px
+        margin: 0 0 4.8vh;
     }
 
     a {
-        padding: 1.4vh 6vw; // 15px 115px
+        //padding: 1.4vh 6vw; // 15px 115px
+        padding: 1.4vh 10vh;
         border: 1px solid #7657ff;
         color: $color-white-10;
         font: 2.2vh $font-lato-regular; // 24px
         text-transform: uppercase;
         text-decoration: none;
+    }
+
+    svg {
+        @include size(96vh);
+        @include absolute(top 2vh left 50%);
+        margin: 0 0 0 -48vh;
+        fill: none;
+        stroke: rgba(112, 59, 127, .5);
     }
 }

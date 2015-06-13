@@ -45,11 +45,15 @@
                     &.active,
                     &:hover {
                         color: $color-red-10;
-                        padding: 0 0 11px 0;
-                        border-bottom: 3px solid $color-red-10;
                     }
                 }
             }
+        }
+
+        .line {
+            @include absolute(bottom -1vh);
+            height: 0.3vh;
+            background: $color-red-10;
         }
     }
 
@@ -89,6 +93,35 @@
                 text-align: center;
                 transition: color .5s ease-in-out;
             }
+        }
+    }
+}
+
+
+.gui-mobile-header {
+    width: 100%;
+    @include absolute(top 0);
+    z-index: 900;
+
+    .logo {
+        width: 100vw;
+        @include relative(top 0 left 0 vh);
+        z-index: 2;
+        background: red;
+
+        .logo-text {
+            @include size(25vw);
+            @include absolute(top 0 right 50%);
+            margin: 6vw -12.5vw 0 0;
+            fill: $color-white-10;
+        }
+
+        .logo-circle {
+            @include size(90vw);
+            @include absolute(top -60vw left 5vw);
+            fill: none;
+            stroke: $color-white-05;
+            animation: rotation 300s linear infinite;
         }
     }
 }
