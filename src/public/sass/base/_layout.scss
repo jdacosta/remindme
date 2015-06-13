@@ -23,6 +23,7 @@ main {
         position: absolute;
         z-index: 1;
         opacity: 0;
+        background-size: cover;
 
         &.is-hidden {
             animation: fadeout 0.5s ease-out;
@@ -58,4 +59,18 @@ main {
     min-height: 100%;
     background: $color-black-02;
     z-index: -90;
+}
+
+.bg-triangle {
+    @include size(auto);
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background: url('../img/bg/mobile-triangle.png')no-repeat center center fixed;
+    background-size: cover;
+    z-index: 2;
+
+    &.hide {
+        display: none;
+    }
 }

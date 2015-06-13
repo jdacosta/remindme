@@ -192,7 +192,6 @@
     .step-infos {
         @include absolute(bottom 10vh left 7vh);
         text-transform: uppercase;
-        overflow: hidden;
 
         h3 {
             font: 5vh $font-antonio-light; // 48px

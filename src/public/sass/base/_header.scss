@@ -103,6 +103,10 @@
     @include absolute(top 0);
     z-index: 900;
 
+    &.hide {
+        display: none;
+    }
+
     .logo {
         width: 100vw;
         @include relative(top 0 left 0 vh);
