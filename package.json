@@ -17,6 +17,7 @@
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",
     "jquery-qrcode": "./bower_components/jquery-qrcode/dist/jquery.qrcode.js",
+    "jquery-touchswipe": "./bower_components/jquery-touchswipe/jquery.touchSwipe.js",
     "preloadjs": "./bower_components/createjs-preloadjs/lib/preloadjs-0.6.1.combined.js",
     "soundjs": "./bower_components/createjs-soundjs/lib/soundjs-0.6.1.combined.js",
     "three": "./node_modules/three/three.js",
@@ -25,6 +26,7 @@
   "browserify-shim": {
     "jquery": "$",
     "jquery-qrcode": "qrcode",
+    "jquery-touchswipe": "$",
     "preloadjs": "createjs.PreloadJS",
     "soundjs": "createjs",
     "three": "THREE",
