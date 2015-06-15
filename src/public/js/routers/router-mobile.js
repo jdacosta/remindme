@@ -3,11 +3,10 @@ var Backbone = require('backbone');
 module.exports = Backbone.Router.extend({
 
     routes: {
-        '': 'tutorial',
+        '': 'experience',
         'about': 'about',
         'tutorial': 'tutorial',
-        'experience/:id': 'experience',
-        '*notfound': 'notfound'
+        ':id': 'experience'
     },
 
     initialize: function () {
@@ -28,14 +27,11 @@ module.exports = Backbone.Router.extend({
         id = id.toUpperCase();
         if (/^[A-Z0-9]{4}$/.test(id)) {
             console.log('New connection, room ID : ' + id);
+            var view = new app.Views.Experience();
+            app.instance.goto(view);
         } else {
             var view = new app.Views.Tutorial();
             app.instance.goto(view);
         }
-    },
-
-    notfound: function (notfound) {
-        var view = new app.Views.Tutorial();
-        app.instance.goto(view);
     }
 });

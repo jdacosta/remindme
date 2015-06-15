@@ -26,6 +26,7 @@ SVGManager.prototype = {
             event.data._this.animateSVG();
         });
 
+        this.animateSVG();
         this.animateLogo();
     },
 
@@ -43,7 +44,14 @@ SVGManager.prototype = {
             this.currentPage = app.instance.currentPage.className;
         }
 
-        if (/^experience-device$/.test(this.currentPage)) {
+        if (/^experience-enter/.test(this.currentPage)) {
+            new Vivus('enter-svg', {
+                type: 'async',
+                duration: 250,
+                pathTimingFunction: Vivus.EASE_OUT,
+                animTimingFunction: Vivus.EASE
+            });
+        } else if (/^experience-device$/.test(this.currentPage)) {
             new Vivus('device-svg', {
                 type: 'delayed',
                 duration: 300,
