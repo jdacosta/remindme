@@ -66,9 +66,40 @@ main {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
+    background-size: cover;
+
+    &.hide {
+        display: none;
+    }
+}
+
+.bg-mobile,
+.bg-triange {
+    @include size(auto);
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+
+    &.hide {
+        display: none;
+    }
+}
+
+.bg-triangle {
     background: url('../img/bg/mobile-triangle.png')no-repeat center center fixed;
     background-size: cover;
-    z-index: 2;
+    z-index: -5;
+}
+
+.bg-mobile {
+    z-index: -10;
+    background: url('../img/bg/mobile-main.png') no-repeat center center fixed;
+    background-size: cover;
+
+    &.about {
+        background: url('../img/bg/mobile-about.png') no-repeat center center fixed;
+        background-size: cover;
+    }
 
     &.hide {
         display: none;

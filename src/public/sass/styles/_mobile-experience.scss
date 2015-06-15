@@ -1,12 +1,10 @@
 .mobile-experience {
-    background: url('../img/bg/mobile-main.png') no-repeat center center fixed;
 
     .alzheimer-home {
 
         .brain {
             @include size(100vw, 100vh);
             @include absolute(top 10vh);
-            //background: red;
         }
 
         .step-infos {
@@ -15,6 +13,10 @@
             margin: 0 0 0 -25vw;
             text-align: center;
             text-transform: uppercase;
+
+            &.hide {
+                display: none;
+            }
 
             h3 {
                 font: 7vh $font-antonio-light; // 48px
@@ -63,6 +65,41 @@
             p {
                 font: 2.3vh $font-lato-light; // 14px
                 text-shadow: 0 0 5px $color-white-05;
+            }
+        }
+
+        .notification-question {
+            @include absolute(bottom 18vh left 50%);
+            margin: 0 0 0 -6vh;
+
+            &.hide {
+                display: none;
+            }
+
+            &:before,
+            &:after {
+                content: '';
+                @include size(12vh);
+                @include absolute(top 50% left 50%);
+                @include border-radius(50%);
+                box-shadow: 0 0 0.1vh 0.1vh $color-red-10, inset 0 0 0.1vh 0.1vh $color-red-10;
+                opacity: 0;
+                animation-name: notification-effect-1, notification-effect-2;
+                animation-duration: 1.8s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+
+            &:after {
+                animation-delay: 0.6s;
+            }
+
+            .text {
+                @include size(12vh);
+                @include absolute(top 0vh);
+                text-align: center;
+                font: 8vh $font-lato-regular;
             }
         }
     }

@@ -1,3 +1,121 @@
 .mobile-about {
-    background: url('../img/bg/mobile-about.png') no-repeat center center fixed;
+
+    header {
+        margin: 0 0 5vh;
+
+        .nav-arrow {
+            .arrow-prev-floating,
+            .arrow-next-floating {
+                @include size(10vh, 2vh);
+                @include absolute(top 36vh);
+                margin: -1vh 0 0 0;
+            }
+
+            .arrow-prev-floating {
+                left: 5vw;
+            }
+
+            .arrow-next-floating {
+                right: 5vw;
+            }
+
+            .arrow {
+                @include size(2vh);
+                @include absolute(top 50%);
+                margin: -1vh 0 0 0;
+                background: transparent;
+                border-top: 1px solid $color-white-05;
+                border-left: 1px solid $color-white-05;
+                transition: all .5s ease-in-out;
+                cursor: pointer;
+                display: inline-block;
+
+                &:hover {
+                    border-color: $color-white-10;
+                }
+
+                &.prev {
+                    transform: rotate(-45deg);
+                    left: 0;
+                }
+
+                &.next {
+                    transform: rotate(135deg);
+                    right: 0;
+                }
+            }
+        }
+
+        svg {
+            @include size(20vh);
+            @include absolute(top 5vh left 50%);
+            margin: 0 0 0 -10vh;
+            fill: none;
+            stroke: $color-white-10;
+            animation: rotation 30s linear infinite;
+
+            polygon {
+                fill: $color-white-03;
+                stroke: $color-white-10;
+            }
+        }
+
+        .slider {
+            @include size(100vw, 15vh);
+            margin: 30vh 0 5vh;
+
+            .slide1,
+            .slide2 {
+                text-align: center;
+
+                &.hide {
+                    display: none;
+                }
+
+                &.show {
+                    animation: fadein 2s linear .3s both;
+                }
+
+                h1 {
+                    font: 6vh $font-antonio-bold;
+                    text-transform: uppercase;
+                    line-height: 7vh;
+
+                    .top {
+                        display: block;
+                    }
+                }
+
+                p {
+                    text-transform: uppercase;
+                    font: 2vh $font-lato-regular;
+                }
+
+                a {
+                    @include size(60vw, 7vh);
+                    margin: 1.5vh auto 0;
+                    border: 1px solid $color-red-10;
+                    display: block;
+                    font: 3vh $font-lato-regular;
+                    line-height: 7vh;
+                    color: $color-white-10;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .separator {
+            @include size(25vw, 1px);
+            background: $color-white-10;
+            margin: 0 auto;
+        }
+    }
+
+    .content {
+        width: 84vw;
+        margin: 0 auto;
+        font: 3.4vh $font-lato-light;
+        line-height: 4.4vh;
+        text-align: justify;
+    }
 }
