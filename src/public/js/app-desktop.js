@@ -10,6 +10,7 @@ window.app = {
     init: function () {
 
         // config
+        app.Config.currentStep = 1;
         app.Config.urlDesktop = 'http://remindme.fr/';
         app.Config.urlMobile  = 'http://remindme.fr/m/';
         app.Config.socket = {

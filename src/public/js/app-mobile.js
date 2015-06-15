@@ -10,6 +10,7 @@ window.app = {
     init: function () {
 
         // config
+        app.Config.currentStep = 1;
         app.Config.urlDesktop = 'http://remindme.fr/';
         app.Config.urlMobile  = 'http://remindme.fr/m/';
         app.Config.socket = {
@@ -23,6 +24,9 @@ window.app = {
         new app.Router();
 
         // events
+        new app.Utils.BrainManager();
+        new app.Utils.MobileManager();
+        new app.Utils.SliderManager();
         new app.Utils.SoundsManager();
         new app.Utils.SVGManager();
     }
@@ -41,8 +45,11 @@ app.Views.Tutorial   = require('./views/mobile/tutorial');
 app.Router = require('./routers/router-mobile');
 
 // utils
-app.Utils.SoundsManager  = require('./utils/sounds-manager');
-app.Utils.SVGManager     = require('./utils/svg-manager');
+app.Utils.BrainManager  = require('./utils/brain-manager');
+app.Utils.MobileManager = require('./utils/mobile-manager');
+app.Utils.SliderManager = require('./utils/slider-manager');
+app.Utils.SoundsManager = require('./utils/sounds-manager');
+app.Utils.SVGManager    = require('./utils/svg-manager');
 
 // launch app
 app.init();
