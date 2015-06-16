@@ -134,7 +134,17 @@ BrainManager.prototype = {
     updateBrainColors: function () {
         var i, colors = [];
         for(i = 0; i < this.length; i++) {
-            if (app.Config.currentStep != 1 && i < app.Config.currentStep * 2000) {
+            if (app.Config.currentStep == 2 && i < 1000) {
+                colors[this.distance[i].index] = new THREE.Color(0xCC342C);
+            } else if (app.Config.currentStep == 3 && i < 3000) {
+                colors[this.distance[i].index] = new THREE.Color(0xCC342C);
+            } else if (app.Config.currentStep == 4 && i < 5000) {
+                colors[this.distance[i].index] = new THREE.Color(0xCC342C);
+            } else if (app.Config.currentStep == 5 && i < 7000) {
+                colors[this.distance[i].index] = new THREE.Color(0xCC342C);
+            } else if (app.Config.currentStep == 6 && i < 11500) {
+                colors[this.distance[i].index] = new THREE.Color(0xCC342C);
+            } else if (app.Config.currentStep == 7 && i < 14000) {
                 colors[this.distance[i].index] = new THREE.Color(0xCC342C);
             }
             else {

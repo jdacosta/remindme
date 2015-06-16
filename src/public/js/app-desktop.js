@@ -14,7 +14,7 @@ window.app = {
         app.Config.urlDesktop = 'http://remindme.fr/';
         app.Config.urlMobile  = 'http://remindme.fr/m/';
         app.Config.socket = {
-            url: 'http://192.168.42.200:1338',
+            url: 'http://192.168.31.19:1338',
             connectionId: '',
             mySocketId: ''
         };

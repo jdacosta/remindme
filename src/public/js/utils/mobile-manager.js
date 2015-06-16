@@ -11,6 +11,7 @@ MobileManager = function () {
     this.$header = null;
     this.$bgTriangle = null;
     this.$bgMobile = null;
+    this.$questionBtn = null;
 
     // initialize
     this.init();
@@ -40,6 +41,10 @@ MobileManager.prototype = {
             this.currentPage = app.instance.currentPage.className;
         }
 
+        if (this.$questionBtn) {
+            this.$questionBtn.off();
+        }
+
         if (/^mobile-about/.test(this.currentPage)) {
             this.$header.addClass('hide');
             this.$bgTriangle.removeClass('hide');
@@ -48,11 +53,20 @@ MobileManager.prototype = {
             this.$header.removeClass('hide');
             this.$bgTriangle.removeClass('hide');
             this.$bgMobile.removeClass('about').addClass('hide');
+            this.$question = $('.alzheimer-questions');
+            this.$questionBtn = $('.notification-question');
+            this.$questionBtn.on('click', { _this: this }, function( event ) {
+                event.data._this.questionPanel();
+            });
         } else if (/^mobile-tutorial/.test(this.currentPage)) {
             this.$header.addClass('hide');
             this.$bgTriangle.addClass('hide');
             this.$bgMobile.removeClass('about').removeClass('hide');
         }
+    },
+
+    questionPanel: function () {
+        this.$question.toggleClass('show');
     }
 };
 
