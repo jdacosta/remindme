@@ -1,0 +1,17 @@
+@keyframes question-show {
+    0% {
+        transform: translateY(110vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes question-hide {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}

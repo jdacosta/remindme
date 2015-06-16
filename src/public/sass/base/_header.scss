@@ -101,7 +101,7 @@
 .gui-mobile-header {
     width: 100%;
     @include absolute(top 0);
-    z-index: 900;
+    z-index: 1;
 
     &.hide {
         display: none;
