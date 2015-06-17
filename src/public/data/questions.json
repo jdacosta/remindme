@@ -1,0 +1,102 @@
+{
+  "questions":[
+    {
+      "id":1,
+      "text":"Comment souhaitez-vous vivre cette expérience ?",
+      "delay":-1,
+      "answers":[
+        {
+          "order":1,
+          "scenario":2,
+          "text":"Dans un cadre familiale"
+        },
+        {
+          "order":2,
+          "scenario":2,
+          "text":"De manière solitaire"
+        }
+      ]
+    },
+    {
+      "id":2,
+      "text":"Quelle activité souhaitez-vous pratiquer ?",
+      "delay":40,
+      "default_answer":1,
+      "answers":[
+        {
+          "order":1,
+          "scenario":3,
+          "text":"Regarder la télévision"
+        },
+        {
+          "order":2,
+          "scenario":3,
+          "text":"Lire un livre"
+        }
+      ]
+    },
+    {
+      "id":3,
+      "text":"Souhaitez-vous rejoindre votre ami pour pratiquer un running ?",
+      "delay":40,
+      "default_answer":2,
+      "answers":[
+        {
+          "order":1,
+          "scenario":4,
+          "text":"Oui"
+        },
+        {
+          "order":2,
+          "scenario":4,
+          "text":"Non"
+        }
+      ]
+    },
+    {
+      "id":4,
+      "text":"Lors de votre réveil, vous êtes désorienté. Que faites-vous ?",
+      "delay":-2,
+      "answers":[
+        {
+          "order":1,
+          "scenario":5,
+          "text":"J'essaye de retrouver un proche"
+        },
+        {
+          "order":2,
+          "scenario":5,
+          "text":"Je trouve des indices pour me repérer"
+        },
+        {
+          "order":3,
+          "scenario":5,
+          "text":"J'appelle les secours"
+        }
+      ]
+    },
+    {
+      "id":5,
+      "text":"Lors de votre réveil, vous êtes désorienté. Que faites-vous ?",
+      "delay":30,
+      "default_answer":1,
+      "answers":[
+        {
+          "order":1,
+          "scenario":6,
+          "text":"J'essaye de retrouver un proche"
+        },
+        {
+          "order":2,
+          "scenario":6,
+          "text":"Je trouve des indices pour me repérer"
+        },
+        {
+          "order":3,
+          "scenario":6,
+          "text":"J'appelle les secours"
+        }
+      ]
+    }
+  ]
+}
