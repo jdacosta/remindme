@@ -1,3 +1,5 @@
+var DeviceConnection = require('../class/device-connection');
+
 var io,
     deviceConnections = [];
 
@@ -15,11 +17,14 @@ function init (socketio) {
         socket.on('joinHosting', function(data) {
             joinHosting(socket, data);
         });
+
+        socket.on('disconnect', function() {
+            console.log('Disconnected');
+        });
     });
 }
 
 function newHosting (socket) {
-
     var connectionId = Math.random().toString(36).substr(2, 4).toUpperCase(),
         room = io.sockets.adapter.rooms[connectionId];
 
@@ -29,27 +34,25 @@ function newHosting (socket) {
             mySocketId: socket.id
         });
         socket.join(connectionId);
-
         console.log('New hosting created : ' + connectionId);
 
         // we create new DeviceConnection
-        //deviceConnections[connectionID] = new DeviceConnection(connectionID, onConnectionReadyCallback);
-        //deviceConnections[connectionID].setDesktop(socket);
+        deviceConnections[connectionId] = new DeviceConnection(connectionId, io);
+        deviceConnections[connectionId].setDesktop(socket);
 
     } else {
+        socket.emit('error', {errroType: -1, message: 'The room ' + connectionId + ' already set, trying another one'});
         this.newHosting(socket);
     }
 }
 
 function joinHosting (socket, data) {
-    console.log('JOIN HOSTING');
-
-    var connectionID = data.connectionID,
-        room = io.sockets.adapter.rooms[connectionID];
+    var connectionId = data.connectionId,
+        room = io.sockets.adapter.rooms[connectionId];
 
     if (room !== undefined) {
-        socket.join(connectionID);
-        deviceConnections[connectionID].setMobile(socket);
+        socket.join(connectionId);
+        deviceConnections[connectionId].setMobile(socket);
     } else {
         socket.emit('error', {errroType: -1, message: 'The room doesn\'t exist.'});
     }
