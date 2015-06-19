@@ -1,0 +1,39 @@
+{
+  "steps":[
+    {
+      "id":1,
+      "text":"Aucune déficience",
+      "description":"Aucune déficience visible Léger repli sur soi"
+    },
+    {
+      "id":2,
+      "text":"Déficit cognitif léger",
+      "description":"Aucune déficience visible Léger repli sur soi"
+    },
+    {
+      "id":3,
+      "text":"Déficit cognitif léger",
+      "description":"Aucune déficience visible Léger repli sur soi"
+    },
+    {
+      "id":4,
+      "text":"Déficit cognitif modéré",
+      "description":"Renfermement, dépression Perte de sociabilité"
+    },
+    {
+      "id":5,
+      "text":"Déficit cognitif modérément sévère",
+      "description":"Hallucinations, Paranoïa Oubli régulier"
+    },
+    {
+      "id":6,
+      "text":"Déficit cognitif sévère",
+      "description":"Stade terminal Agressivité, rythme diurne, Perte du lien à la réalité"
+    },
+    {
+      "id":7,
+      "text":"Déficit cognitif très sévère",
+      "description":"Stade terminal Agressivité, rythme diurne, Perte du lien à la réalité"
+    }
+  ]
+}
