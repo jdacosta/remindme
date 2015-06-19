@@ -1,0 +1,46 @@
+.mobile-error {
+
+  .code {
+    @include relative(top 5vh);
+    text-align: center;
+
+    h3 {
+      font: 5vh $font-antonio-bold;
+      text-transform: uppercase;
+      line-height: 6.5vh;
+      margin: 7vh 0 14vh;
+
+      .top {
+        display: block;
+      }
+    }
+
+    .codeExperience {
+      @include size(60vw, 15vh);
+      font: 8vh $font-antonio-regular;
+      color: $color-white-10;
+      line-height: 17vh;
+      letter-spacing: 2vh;
+      text-align: center;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 1px solid $color-white-05;
+      background: $color-white-01;
+      transition: all .5s ease-in-out;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $color-white-10;
+      }
+    }
+
+    .btnSendCode {
+      @include size(60vw, auto);
+      margin: 10vh auto;
+      font: 3vh $font-lato-light;
+      line-height: 8vh;
+      border: 1px solid $color-red-10;
+    }
+  }
+}

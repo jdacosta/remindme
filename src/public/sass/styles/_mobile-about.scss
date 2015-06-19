@@ -7,7 +7,7 @@
             .arrow-prev-floating,
             .arrow-next-floating {
                 @include size(10vh, 2vh);
-                @include absolute(top 36vh);
+                @include absolute(top 37vh);
                 margin: -1vh 0 0 0;
             }
 
@@ -62,7 +62,7 @@
 
         .slider {
             @include size(100vw, 15vh);
-            margin: 30vh 0 5vh;
+            margin: 30vh 0 4vh;
 
             .slide1,
             .slide2 {
@@ -79,7 +79,7 @@
                 h1 {
                     font: 6vh $font-antonio-bold;
                     text-transform: uppercase;
-                    line-height: 7vh;
+                    line-height: 8vh;
 
                     .top {
                         display: block;

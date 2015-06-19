@@ -9,7 +9,7 @@
 
         .step-infos {
             width: 50vw;
-            @include absolute(bottom 10vh left 50%);
+            @include absolute(bottom 6vh left 50%);
             margin: 0 0 0 -25vw;
             text-align: center;
             text-transform: uppercase;
@@ -56,7 +56,7 @@
                     text-shadow: 0 0 4px $alzheimer-step6-05;
                 }
 
-                .s7 {
+                &.s7 {
                     color: $alzheimer-step7-10;
                     text-shadow: 0 0 4px $alzheimer-step7-05;
                 }
@@ -159,7 +159,7 @@
 
                 h3 {
                     font: 6vh $font-antonio-regular;
-                    line-height: 7vh;
+                    line-height: 8vh;
                     text-align: center;
                     text-transform: uppercase;
                 }
@@ -211,8 +211,9 @@
                 }
 
                 .progress-bar {
-                    @include size(60vw, 0.6vh); // 60vw, 7px
+                    @include size(0vw, 0.6vh); // 60vw, 7px
                     background: $color-red-10;
+                    transition: width 1s linear;
                 }
             }
         }

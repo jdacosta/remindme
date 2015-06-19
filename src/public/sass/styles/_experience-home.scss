@@ -201,7 +201,10 @@
                 font: 5vh $font-antonio-bold; // 48px
             }
 
-            &.s1 {
+            color: $color-white-07;
+            text-shadow: 0 0 4px $color-white-01;
+
+           /* &.s1 {
                 color: $alzheimer-step1-10;
                 text-shadow: 0 0 4px $alzheimer-step1-05;
             }
@@ -231,10 +234,10 @@
                 text-shadow: 0 0 4px $alzheimer-step6-05;
             }
 
-            .s7 {
+            &.s7 {
                 color: $alzheimer-step7-10;
                 text-shadow: 0 0 4px $alzheimer-step7-05;
-            }
+            }*/
         }
 
         p {

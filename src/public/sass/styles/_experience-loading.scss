@@ -1,24 +1,15 @@
 .experience-loading {
 
     .content-centered {
-        @include size(60vw, 64vh);
+        @include size(60vw, 70vh);
         @include absolute(top 50% right 50%);
-        margin: -32vh -30vw 0 0;
+        margin: -30vh -30vw 0 0;
         text-align: center;
     }
 
     p {
+        margin: 67vh 0 0 0;
         font: 2.2vh 'latolight', sans-serif; // 24px
-    }
-
-    .icons {
-        margin: 48vh 0 0 0;
-        li {
-            margin: 2vh 0.7vw;
-            display: inline-block;
-            color: $color-white-10;
-            font-size: 3vh;
-        }
     }
 
     .logo-circle {
@@ -26,14 +17,55 @@
         @include absolute(top 0 right 50%);
         margin: 0 -22.5vh 0 0;
         fill: none;
-        stroke: $color-red-10;
+        stroke: $color-white-05;
         animation: rotation 30s linear infinite;
     }
 
-    .progress-bar {
-        @include size(60vw, 0.6vh); // 60vw, 7px
-        @include absolute(bottom 0 left 0);
-        border-top: 0.2vh solid #cf352d;
-        background: #972729;
+    .logo-m {
+        @include size(40vh);
+        @include absolute(top 3vh right 50%);
+        margin: 0 -20vh 0 0;
+        fill: $color-white-05;
+        stroke: none;
+    }
+
+    .notification-mobile {
+        .phone {
+            @include size(6vh);
+            @include absolute(top 55vh right 50%);
+            margin: 0 -3vh 0 0;
+            fill: none;
+            transition: fill 1s linear;
+
+            .phone-border {
+                fill: $color-white-03;
+            }
+        }
+
+        &.action {
+            &:before,
+            &:after {
+                content: '';
+                @include size(10vh);
+                @include absolute(top 53vh right 50%);
+                @include border-radius(50%);
+                margin: 0 -5vh 0 0;
+                box-shadow: 0 0 0.1vh 0.1vh $color-red-10, inset 0 0 0.1vh 0.1vh $color-red-10;
+                opacity: 0;
+                animation-name: notification-effect-1, notification-effect-2;
+                animation-duration: 1.8s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+
+            &:after {
+                animation-delay: 0.6s;
+            }
+
+            .phone-border {
+                fill: $color-white-07;
+            }
+        }
     }
 }

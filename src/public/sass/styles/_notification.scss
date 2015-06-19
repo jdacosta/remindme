@@ -5,6 +5,7 @@
     svg {
         @include size(4.5vh);
         fill: none;
+        transition: fill 1s linear;
 
         .phone-border {
             fill: $color-white-03;
