@@ -12,7 +12,7 @@
 <!-- // HEADER // -->
 <header class="gui-mobile-header hide">
     <div class="logo">
-        <svg class="logo-circle" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+        <svg id="logo-circle" class="logo-circle" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
             <circle stroke-width="0.2" stroke-miterlimit="10" cx="64" cy="64" r="63.5"></circle>
             <circle stroke-width="0.2" stroke-miterlimit="10" cx="64.5" cy="64" r="36.3"></circle>
             <polygon stroke-width="0.2" stroke-miterlimit="10" points="90.3,89.8 64.7,100.4 39.1,89.8 28.5,64.1 39.1,38.5 64.7,28 90.3,38.6 100.9,64.2"></polygon>
@@ -130,11 +130,11 @@
 <!-- // SCRIPTS // -->
 <script src="/socket.io/socket.io.js"></script>
 <script src="assets/js/app-mobile.js"></script>
-<script>
+<!--<script>
     (function () {
         var socket = io.connect(app.Config.socket.url);
     })();
-</script>
+</script>-->
 <!-- // SCRIPTS // -->
 </body>
 </html>
