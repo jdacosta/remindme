@@ -22,7 +22,7 @@ VideosManager.prototype = {
         // initialize elements
         this.$document = $(document);
         this.$video = $('.bg-video');
-        this.$videoSource = $('source', this.$videoSource);
+        this.$videoSource = $('source', this.$video);
 
         // events
         this.$document.on('PAGE_UPDATED', { _this: this }, function (event) {
@@ -35,13 +35,18 @@ VideosManager.prototype = {
             this.currentPage = app.instance.currentPage.className;
         }
 
-        if (/^experience-home$/.test(this.currentPage)) {
-            this.experienceVideo();
-        } else if (/^about$/.test(this.currentPage)) {
+        if (/^about$/.test(this.currentPage)) {
             if (this.currentVideo != 'about') {
                 this.currentVideo = 'about';
                 this.liveVideo(this.currentVideo, true);
             }
+        } else if (/^community$/.test(this.currentPage)) {
+            if (this.currentVideo != 'community') {
+                this.currentVideo = 'community';
+                this.liveVideo(this.currentVideo, true);
+            }
+        } else if (/^experience-home$/.test(this.currentPage)) {
+            this.currentVideo = 'experience';
         } else {
             if (this.currentVideo != 'background') {
                 this.currentVideo = 'background';
@@ -55,17 +60,15 @@ VideosManager.prototype = {
             this.$video.addClass('is-hidden').removeClass('is-visible');
             this.$video.one('animationend', { _this: this }, function ( event ) {
                 event.data._this.$videoSource.attr('src', 'assets/videos/' + name + '.mp4');
+                event.data._this.$video.prop('loop', true);
                 event.data._this.$video.load();
                 event.data._this.$video.addClass('is-visible').removeClass('is-hidden');
             });
         } else {
             this.$videoSource.attr('src', 'assets/videos/' + name + '.mp4');
+            this.$video.prop('loop', true);
             this.$video.load();
         }
-    },
-
-    experienceVideo: function () {
-
     }
 };
 

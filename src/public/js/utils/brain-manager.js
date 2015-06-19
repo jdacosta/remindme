@@ -1,4 +1,5 @@
 var THREE = require('three');
+//var TWEEN = require('tween.js');
 var _     = require('lodash');
 var $     = require('jquery');
 
@@ -23,6 +24,7 @@ BrainManager = function () {
 
     // initialize
     this.init();
+
 };
 
 BrainManager.prototype = {
@@ -123,7 +125,7 @@ BrainManager.prototype = {
         }
         this.geometry.colors = colors;
 
-        this.mesh = new THREE.PointCloud(this.geometry, new THREE.PointCloudMaterial({ size: 3, vertexColors: THREE.VertexColors }));
+        this.mesh = new THREE.PointCloud(this.geometry, new THREE.PointCloudMaterial({ size: 22, blending: THREE.AdditiveBlending, vertexColors: THREE.VertexColors }));
         this.mesh.scale.x = this.mesh.scale.y = this.mesh.scale.z = scale;
         this.mesh.position.x = x;
         this.mesh.position.y = y;
@@ -148,11 +150,17 @@ BrainManager.prototype = {
                 colors[this.distance[i].index] = new THREE.Color(0xCC342C);
             }
             else {
-                colors[this.distance[i].index] = new THREE.Color(0xA3A2BC);
+                //colors[this.distance[i].index] = new THREE.Color(0xA3A2BC);
+                colors[this.distance[i].index] = new THREE.Color(0xFFFFFF);
             }
         }
         this.geometry.colors = colors;
         this.mesh.geometry.colorsNeedUpdate = true;
+
+        /*colors[this.distance[i].index] = THREE.Tween(0xA3A2BC)
+            .to({r: 0, g: 25, b: 155}, 4000)
+            .easing(THREE.Easing.Quartic.In)
+            .start();*/
     },
 
     render: function () {

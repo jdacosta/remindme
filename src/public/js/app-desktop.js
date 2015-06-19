@@ -1,4 +1,5 @@
 window.app = {
+    Classes: {},
     Collections: {},
     Config: {},
     Extensions: {},
@@ -11,12 +12,11 @@ window.app = {
 
         // config
         app.Config.currentStep = 1;
-        app.Config.urlDesktop = 'http://remindme.fr/';
-        app.Config.urlMobile  = 'http://remindme.fr/m/';
+        app.Config.urlDesktop = 'http://192.168.31.19:1338/';
+        app.Config.urlMobile  = 'http://192.168.31.19:1338/m/';
         app.Config.socket = {
             url: 'http://192.168.31.19:1338',
-            connectionId: '',
-            mySocketId: ''
+            connectionId: ''
         };
 
         // remindme app
@@ -24,13 +24,14 @@ window.app = {
         new app.Router();
 
         // events
-        new app.Utils.FullscreenManager();
-        new app.Utils.HeaderManager();
-        new app.Utils.ImmersiveManager();
-        new app.Utils.SoundsManager();
-        new app.Utils.SVGManager();
-        new app.Utils.VideosManager();
-        new app.Utils.WebcamManager();
+        app.Classes.DesktopManager    = new app.Utils.DesktopManager();
+        app.Classes.FullscreenManager = new app.Utils.FullscreenManager();
+        app.Classes.HeaderManager     = new app.Utils.HeaderManager();
+        app.Classes.ImmersiveManager  = new app.Utils.ImmersiveManager();
+        app.Classes.SoundsManager     = new app.Utils.SoundsManager();
+        app.Classes.SVGManager        = new app.Utils.SVGManager();
+        app.Classes.VideosManager     = new app.Utils.VideosManager();
+        app.Classes.WebcamManager     = new app.Utils.WebcamManager();
     }
 };
 
@@ -59,6 +60,7 @@ app.Views.ExperienceStatistics = require('./views/desktop/experience-statistics'
 app.Router = require('./routers/router-desktop');
 
 // utils
+app.Utils.DesktopManager    = require('./utils/desktop-manager');
 app.Utils.FullscreenManager = require('./utils/fullscreen-manager');
 app.Utils.HeaderManager     = require('./utils/header-manager');
 app.Utils.ImmersiveManager  = require('./utils/immersive-manager');

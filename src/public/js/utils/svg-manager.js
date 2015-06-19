@@ -44,7 +44,9 @@ SVGManager.prototype = {
             this.currentPage = app.instance.currentPage.className;
         }
 
-        if (/^experience-enter/.test(this.currentPage)) {
+        if (/^experience-enter/.test(this.currentPage) ||
+            /^experience-exit/.test(this.currentPage) ||
+            /^experience-challenge/.test(this.currentPage)) {
             new Vivus('enter-svg', {
                 type: 'async',
                 duration: 250,
@@ -55,6 +57,13 @@ SVGManager.prototype = {
             new Vivus('device-svg', {
                 type: 'delayed',
                 duration: 300,
+                pathTimingFunction: Vivus.EASE_OUT,
+                animTimingFunction: Vivus.EASE
+            });
+        } else if (/^experience-load/.test(this.currentPage)) {
+            new Vivus('load-svg', {
+                type: 'delayed',
+                duration: 500,
                 pathTimingFunction: Vivus.EASE_OUT,
                 animTimingFunction: Vivus.EASE
             });

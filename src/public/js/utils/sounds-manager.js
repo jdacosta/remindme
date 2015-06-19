@@ -49,6 +49,7 @@ SoundsManager.prototype = {
 
     loadSounds: function () {
         soundjs.Sound.registerSound('../assets/sounds/controls-hover.mp3', 'controls-hover');
+        soundjs.Sound.registerSound('../assets/sounds/mobile-notification.mp3', 'mobile-notification');
     },
 
     playsoundById: function (soundID) {
