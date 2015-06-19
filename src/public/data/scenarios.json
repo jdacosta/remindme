@@ -4,9 +4,9 @@
       "id":1,
       "video":"assets/videos/video1.mp4",
       "loop":true,
-      "delay":20,
+      "delay":10,
       "question":1,
-      "steps":[  
+      "steps":[
         {  
           "step":1,
           "time":0
@@ -18,7 +18,7 @@
       "video":"assets/videos/video2.mp4",
       "loop":false,
       "question":2,
-      "steps":[  
+      "steps":[
         {  
           "step":1,
           "time":0
@@ -30,7 +30,7 @@
       "video":"assets/videos/video3.mp4",
       "loop":false,
       "question":3,
-      "steps":[  
+      "steps":[
         {  
           "step":2,
           "time":12
@@ -42,7 +42,7 @@
       "video":"assets/videos/video4.mp4",
       "loop":false,
       "question":4,
-      "steps":[  
+      "steps":[
         {  
           "step":2,
           "time":0
@@ -54,7 +54,7 @@
       "video":"assets/videos/video5.mp4",
       "loop":false,
       "question":5,
-      "steps":[  
+      "steps":[
         {  
           "step":5,
           "time":0
@@ -74,7 +74,7 @@
       "video":"assets/videos/video6.mp4",
       "loop":false,
       "question":-1,
-      "steps":[  
+      "steps":[
         {  
           "step":5,
           "time":0
