@@ -1,10 +1,34 @@
 {
-    "title": "France Alzheimer",
-    "url": "http://francealzheimer.org",
-    "logo": "assets/img/about/france-alzheimer.png",
-    "data": {
+  "scenarios": [
+    {
+      "title": "France Alzheimer",
+      "url": "http://francealzheimer.org",
+      "logo": "assets/img/about/france-alzheimer.png",
+      "data": {
         "intro": "Association combattant pour faire évoluer l'image de la maladie",
         "text1": "Pour faire évoluer l’image de la maladie, France Alzheimer mène depuis plusieurs années des campagnes de sensibilisation auprès du grand public.",
         "text2": "Nos campagnes ont participé aux efforts de communication entrepris ces dernières années pour améliorer la connaissance du public face au fléau que représente la maladie d’Alzheimer."
+      }
+    },
+    {
+      "title": "Institut Pasteur",
+      "url": "http://www.pasteur.fr",
+      "logo": "assets/img/about/institut-pasteur.png",
+      "data": {
+        "intro": "Participer aux découvertes de demain, combattre les maladies",
+        "text1": "La générosité est l’une des trois sources de financements de l’Institut Pasteur et un de ses piliers historiques. C’est en effet grâce à de nombreux donateurs que Louis Pasteur put créer cet Institut en 1887.",
+        "text2": "Les dons aujourd’hui versés à l’Institut Pasteur constituent des moyens significatifs comme un formidable encouragement pour ses chercheurs, portés par l’intérêt et la confiance des donateurs."
+      }
+    },
+    {
+      "title": "Centre de recherche ICM",
+      "url": "http://icm-institute.org",
+      "logo": "assets/img/about/icm.png",
+      "data": {
+        "intro": "Demain, il faut prévenir, guérir et réparer",
+        "text1": "L’objectif scientifique de l’ICM est de comprendre les causes et les mécanismes des grandes pathologies du système nerveux, et de proposer des traitements nouveaux et spécifiques dans une perspective à court terme.",
+        "text2": "Grâce aux progrès de la recherche en neurosciences, le traitement des maladies du système nerveux qui était surtout considéré comme symptomatique et palliatif deviendra plus efficace, et pourra être préventif et curatif."
+      }
     }
+  ]
 }

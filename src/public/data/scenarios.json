@@ -7,7 +7,7 @@
       "delay":10,
       "question":1,
       "steps":[
-        {  
+        {
           "step":1,
           "time":0
         }

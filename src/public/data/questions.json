@@ -20,7 +20,7 @@
     {
       "id":2,
       "text":"Quelle activité souhaitez-vous pratiquer ?",
-      "delay":40,
+      "delay":15,
       "default_answer":1,
       "answers":[
         {
@@ -32,13 +32,18 @@
           "order":2,
           "scenario":3,
           "text":"Lire un livre"
+        },
+        {
+          "order":3,
+          "scenario":3,
+          "text":"Bronzer sur la terrasse"
         }
       ]
     },
     {
       "id":3,
-      "text":"Souhaitez-vous rejoindre votre ami pour pratiquer un running ?",
-      "delay":40,
+      "text":"Rejoindre votre ami pour pratiquer un running ?",
+      "delay":15,
       "default_answer":2,
       "answers":[
         {
@@ -55,7 +60,7 @@
     },
     {
       "id":4,
-      "text":"Lors de votre réveil, vous êtes désorienté. Que faites-vous ?",
+      "text":"Vous êtes désorienté. Que faites-vous ?",
       "delay":-2,
       "answers":[
         {
@@ -65,20 +70,15 @@
         },
         {
           "order":2,
-          "scenario":5,
-          "text":"Je trouve des indices pour me repérer"
-        },
-        {
-          "order":3,
-          "scenario":5,
+          "scenario":6,
           "text":"J'appelle les secours"
         }
       ]
     },
     {
       "id":5,
-      "text":"Lors de votre réveil, vous êtes désorienté. Que faites-vous ?",
-      "delay":30,
+      "text":"Vous êtes désorienté. Que faites-vous ?",
+      "delay":20,
       "default_answer":1,
       "answers":[
         {
@@ -88,11 +88,6 @@
         },
         {
           "order":2,
-          "scenario":6,
-          "text":"Je trouve des indices pour me repérer"
-        },
-        {
-          "order":3,
           "scenario":6,
           "text":"J'appelle les secours"
         }

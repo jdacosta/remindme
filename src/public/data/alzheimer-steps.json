@@ -7,7 +7,7 @@
     },
     {
       "id":2,
-      "text":"Déficit cognitif léger",
+      "text":"Déficit cognitif très léger",
       "description":"Aucune déficience visible Léger repli sur soi"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "id":5,
-      "text":"Déficit cognitif modérément sévère",
+      "text":"Déficit cognitif peu sévère",
       "description":"Hallucinations, Paranoïa Oubli régulier"
     },
     {
