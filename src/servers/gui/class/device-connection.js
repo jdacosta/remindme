@@ -18,6 +18,22 @@ DeviceConnection.prototype = {
         this.desktop.on('stepUpdated', function (data) {
             self.mobile.emit('_stepUpdated_', data);
         });
+
+        this.desktop.on('goToPageAbout', function (data) {
+            self.mobile.emit('_goToPageAbout_', data);
+        });
+
+        this.desktop.on('goToPageCommunity', function () {
+            self.mobile.emit('_goToPageCommunity_');
+        });
+
+        this.desktop.on('goToPageExperience', function () {
+            self.mobile.emit('_goToPageExperience_');
+        });
+
+        this.desktop.on('goToPageStatistics', function () {
+            self.mobile.emit('_goToPageStatistics_');
+        });
     },
 
     setMobile: function (socket) {
@@ -29,6 +45,10 @@ DeviceConnection.prototype = {
 
         this.mobile.on('userStartExperience', function (data) {
             self.desktop.emit('_userStartExperience_', data);
+        });
+
+        this.mobile.on('userStartChallenge', function () {
+            self.desktop.emit('_userStartChallenge_');
         });
 
         this.mobile.on('sendUserAnswer', function (data) {

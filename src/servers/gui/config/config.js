@@ -2,7 +2,7 @@
 
 module.exports = {
     server: {
-        host: '192.168.31.19',
+        host: '192.168.42.207',
         port: 1338
     }
 };

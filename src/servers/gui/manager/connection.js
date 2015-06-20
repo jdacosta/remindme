@@ -19,6 +19,7 @@ function init (socketio) {
         });
 
         socket.on('disconnect', function() {
+            //io.sockets.emit('disconnected');
             console.log('Disconnected');
         });
     });
@@ -41,7 +42,8 @@ function newHosting (socket) {
         deviceConnections[connectionId].setDesktop(socket);
 
     } else {
-        socket.emit('error', {errroType: -1, message: 'The room ' + connectionId + ' already set, trying another one'});
+        //socket.emit('error', {errroType: -1, message: 'The room ' + connectionId + ' already set, trying another one'});
+        console.log('The room ' + connectionId + ' already set, trying another one');
         this.newHosting(socket);
     }
 }
@@ -51,10 +53,14 @@ function joinHosting (socket, data) {
         room = io.sockets.adapter.rooms[connectionId];
 
     if (room !== undefined) {
-        socket.join(connectionId);
-        deviceConnections[connectionId].setMobile(socket);
+        if (!socket.connectionId) {
+
+            socket.join(connectionId);
+            deviceConnections[connectionId].setMobile(socket);
+        }
     } else {
-        socket.emit('error', {errroType: -1, message: 'The room doesn\'t exist.'});
+        console.log('The room doesn\'t exist.');
+        //socket.emit('error', {errroType: -1, message: 'The room doesn\'t exist.'});
     }
 }
 
