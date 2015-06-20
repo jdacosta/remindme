@@ -2,6 +2,10 @@
     @include absolute(bottom 10vh right 15.5vh);
     margin: 0 -2.25vh 0 0;
 
+    &.hide {
+        display: none;
+    }
+
     svg {
         @include size(4.5vh);
         fill: none;

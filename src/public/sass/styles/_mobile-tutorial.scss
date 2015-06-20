@@ -72,7 +72,7 @@
                     @include absolute(top 50% left 50%);
                     @include border-radius(50%);
                     margin: -6vh 0 0 -12.5vh;
-                    box-shadow: 0 0 0.2vh 0.2vh $color-red-10, inset 0 0 0.2vh 0.2vh $color-red-10;
+                    box-shadow: 0 0 0.1vh 0.1vh $color-red-10, inset 0 0 0.1vh 0.1vh $color-red-10;
                     opacity: 0;
                     animation-name: notification-effect-1, notification-effect-2;
                     animation-duration: 1.8s;

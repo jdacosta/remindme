@@ -1,0 +1,64 @@
+.mobile-community {
+
+    header {
+        margin: 0 0 5vh;
+        text-align: center;
+
+        .circle,
+        .icon-community {
+            fill: none;
+            stroke: $color-white-10;
+        }
+
+        .circle {
+            @include size(20vh);
+            @include absolute(top 5vh left 50%);
+            margin: 0 0 0 -10vh;
+            animation: rotation 30s linear infinite;
+
+            polygon {
+                fill: $color-white-03;
+                stroke: $color-white-10;
+            }
+        }
+
+        .icon-community {
+            @include size(18vh);
+            @include absolute(top 6vh left 50%);
+            margin: 0 0 0 -9vh;
+        }
+
+        h1 {
+            @include size(100vw, 15vh);
+            margin: 30vh 0 4vh;
+            font: 6vh $font-antonio-bold;
+            text-transform: uppercase;
+            line-height: 8vh;
+
+            .top {
+                display: block;
+            }
+        }
+
+        .separator {
+            @include size(25vw, 1px);
+            background: $color-white-10;
+            margin: 0 auto;
+        }
+    }
+
+    .content {
+        width: 84vw;
+        margin: 0 auto;
+        font: 3.4vh $font-lato-light;
+        line-height: 4.4vh;
+        text-align: justify;
+
+        .intro {
+            font: 3vh $font-lato-light;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0 0 4vh;
+        }
+    }
+}

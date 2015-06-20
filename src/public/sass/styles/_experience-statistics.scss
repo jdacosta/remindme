@@ -24,12 +24,12 @@
             position: relative;
             display: flex;
 
-            &.c9 {
+            &.c10 {
                 width: 1vw;
             }
 
             .line {
-                width: 6.6vw;
+                width: 5.8vw;
                 @include absolute(bottom 0.4vw left 0.8vw);
                 border-top: 1px solid $color-white-03;
 
@@ -46,7 +46,8 @@
                 &:hover {
                     header,
                     footer {
-                        display: block;
+                        //display: block;
+                        animation: fadein 1.5s linear both .3s;
                     }
 
                     .bullet {
@@ -58,6 +59,8 @@
                 footer {
                     display: block;
                     width: 30vw;
+                    opacity: 0;
+                    animation: fadeout .5s linear both;
 
                     p {
                         font: 1.6vh $font-lato-light;
@@ -71,7 +74,7 @@
                     .info-left,
                     .info-right {
                         @include size(10vw, 8vw);
-                        background: green;
+                        //background: green;
 
                         .number {
                             margin: 0.5vh 0;
@@ -93,7 +96,56 @@
                         margin: 0 0 0 -4vw;
                         @include border-radius(50%);
                         border: 0.4vh solid $color-red-10;
-                        background: url('../img/test-statistics.jpg') center center;
+
+                        &.healthy-eating {
+                            background: url('../img/statistics/healthy-eating.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.malnutrition {
+                            background: url('../img/statistics/malnutrition.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.sloth {
+                            background: url('../img/statistics/sloth.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.sport {
+                            background: url('../img/statistics/sport.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.socially-active {
+                            background: url('../img/statistics/socially-active.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.loneliness {
+                            background: url('../img/statistics/loneliness.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.right-moves {
+                            background: url('../img/statistics/right-moves.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.cigarette {
+                            background: url('../img/statistics/cigarette.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.stress {
+                            background: url('../img/statistics/stress.jpg') center center;
+                            background-size: cover;
+                        }
+
+                        &.socio-type {
+                            background: url('../img/statistics/socio-type.jpg') center center;
+                            background-size: cover;
+                        }
                     }
                 }
 

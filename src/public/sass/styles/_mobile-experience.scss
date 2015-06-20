@@ -102,6 +102,21 @@
                 font: 8vh $font-lato-regular;
             }
         }
+
+        .btn-challenge {
+            @include size(76vw, auto);
+            @include absolute(bottom 9vh left 50%);
+            margin: 0 0 0 -38vw;
+            padding: 2vh 0;
+            border: 1px solid $color-red-10;
+            font: 2.5vh $font-lato-light;
+            text-transform: uppercase;
+            text-align: center;
+
+            &.hide {
+                display: none;
+            }
+        }
     }
 
     .alzheimer-questions {
@@ -159,7 +174,7 @@
 
                 h3 {
                     font: 6vh $font-antonio-regular;
-                    line-height: 8vh;
+                    line-height: 9vh;
                     text-align: center;
                     text-transform: uppercase;
                 }

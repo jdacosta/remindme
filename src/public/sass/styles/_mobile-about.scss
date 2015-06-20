@@ -46,7 +46,7 @@
             }
         }
 
-        svg {
+        .circle {
             @include size(20vh);
             @include absolute(top 5vh left 50%);
             margin: 0 0 0 -10vh;
@@ -58,6 +58,13 @@
                 fill: $color-white-03;
                 stroke: $color-white-10;
             }
+        }
+
+        .logo {
+            @include size(15vh);
+            @include absolute(top 7.5vh left 50%);
+            margin: 0 0 0 -7.5vh;
+            display: block;
         }
 
         .slider {

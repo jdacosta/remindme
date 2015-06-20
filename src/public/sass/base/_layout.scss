@@ -101,6 +101,16 @@ main {
         background-size: cover;
     }
 
+    &.community {
+        background: url('../img/bg/mobile-community.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    &.experience {
+        background: url('../img/bg/mobile-experience.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
     &.hide {
         display: none;
     }
