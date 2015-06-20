@@ -5,6 +5,7 @@ module.exports = Backbone.Router.extend({
     routes: {
         '': 'error',
         'about': 'about',
+        'community': 'community',
         'experience': 'experience',
         ':id': 'tutorial'
     },
@@ -15,6 +16,11 @@ module.exports = Backbone.Router.extend({
 
     about: function () {
         var view = new app.Views.About();
+        app.instance.goto(view);
+    },
+
+    community: function () {
+        var view = new app.Views.Community();
         app.instance.goto(view);
     },
 

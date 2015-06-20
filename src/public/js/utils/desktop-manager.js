@@ -9,6 +9,7 @@ DesktopManager = function () {
     this.questionsExperience = null;
     this.stepsExpererience = null;
     this.socket = null;
+    this.socketBinded = false;
 
     // elements
     this.$document = $(document);
@@ -25,6 +26,7 @@ DesktopManager = function () {
     });
 
     // initialize
+    this.update();
     this.init();
 };
 
@@ -59,17 +61,27 @@ DesktopManager.prototype = {
         this.socket.on('newConnectionID', function (data) {
             app.Config.socket.connectionId = data.connectionId;
         });
-        this.socket.on('newBridge', function() {
-            self.bindSocketControls();
-            window.location = app.Config.urlDesktop + '#/experience/load';
+        this.socket.on('newBridge', function () {
+            if (!self.socketBinded) {
+                self.bindSocketControls();
+                window.location = app.Config.urlDesktop + '#/experience/load';
+                app.Config.socket.mobileConnected = true;
+                self.socketBinded = true;
+            }
         });
+        /*this.socket.on('disconnected', function (data) {
+            self.disconnected();
+        });*/
     },
 
     bindSocketControls: function () {
         var self = this;
         this.socket.on('_userStartExperience_', function () {
-            window.location = app.Config.urlDesktop + '#/experience/home';
+            window.location.replace(app.Config.urlDesktop + '#/experience/home');
             self.playExperienceScenario(1);
+        });
+        this.socket.on('_userStartChallenge_', function () {
+            window.location.replace(app.Config.urlDesktop + '#/experience/challenge');
         });
         this.socket.on('_sendUserAnswer_', function (data) {
             self.playExperienceScenario(data);
@@ -81,6 +93,14 @@ DesktopManager.prototype = {
         console.log('Start new hosting');
     },
 
+    /*disconnected: function () {
+        if (/^experience-home$/.test(this.currentPage)) {
+            this.$mobileNotification.removeClass('action').addClass('action-error');
+        } else {
+            window.location.replace(app.Config.urlDesktop + '#/');
+        }
+    },*/
+
     playExperienceScenario: function (scenarioId) {
         var self = this,
             secondsChrono = 0,
@@ -89,7 +109,8 @@ DesktopManager.prototype = {
         if (this.$mobileNotification) {
             this.$mobileNotification.removeClass('action');
         }
-        scenario = _.first(this.getObjects(this.scenariosExperience, 'id', scenarioId));
+
+        scenario = _.clone(_.first(this.getObjects(this.scenariosExperience, 'id', scenarioId)));
 
         // play video
         if (scenario.loop) {
@@ -132,7 +153,6 @@ DesktopManager.prototype = {
     sendQuestionToUser: function (questionId) {
         if (questionId == -1) {
             window.location = app.Config.urlDesktop + '#/experience/exit';
-            console.log('[EVENT] SORTI EXPERIENCE --> PAGE STATISTIQUES');
         } else {
             this.socket.emit('displayQuestion', _.first(this.getObjects(this.questionsExperience, 'id', questionId)));
             this.$mobileNotification.addClass('action');
@@ -170,10 +190,37 @@ DesktopManager.prototype = {
             this.$stepinfosTitle = $('h3', this.$stepinfos);
             this.$stepinfosText = $('p', this.$stepinfos);
         } else if (/^experience-loading$/.test(this.currentPage)) {
+            if (app.Config.socket.mobileConnected) {
+                this.socket.emit('goToPageExperience');
+            }
             _.delay(function () {
                 $('.notification-mobile').addClass('action');
-                //app.Classes.SoundsManager.playsoundById('mobile-notification');
             }, 4000);
+        } else if (/^experience-statistics$/.test(this.currentPage)) {
+            if (app.Config.socket.mobileConnected) {
+                this.socket.emit('goToPageStatistics');
+                _.delay(function () {
+                    $('.notification').addClass('action');
+                }, 5000);
+            }
+        } else if (/^about$/.test(this.currentPage)) {
+            if (app.Config.socket.mobileConnected) {
+                this.socket.emit('goToPageAbout', true);
+                _.delay(function () {
+                    $('.notification').addClass('action');
+                }, 2000);
+            } else {
+                $('.notification').addClass('hide');
+            }
+        } else if (/^community$/.test(this.currentPage)) {
+            if (app.Config.socket.mobileConnected) {
+                this.socket.emit('goToPageCommunity');
+                _.delay(function () {
+                    $('.notification').addClass('action');
+                }, 2000);
+            } else {
+                $('.notification').addClass('hide');
+            }
         }
     }
 };

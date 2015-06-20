@@ -150,7 +150,6 @@ BrainManager.prototype = {
                 colors[this.distance[i].index] = new THREE.Color(0xCC342C);
             }
             else {
-                //colors[this.distance[i].index] = new THREE.Color(0xA3A2BC);
                 colors[this.distance[i].index] = new THREE.Color(0xFFFFFF);
             }
         }

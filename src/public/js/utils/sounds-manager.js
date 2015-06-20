@@ -13,6 +13,7 @@ SoundsManager = function () {
     this.$soundBtnIcon = null;
     this.$playSoundClick = null;
     this.$playSoundHover = null;
+    this.$video = null;
 
     // initialize
     this.init();
@@ -28,6 +29,7 @@ SoundsManager.prototype = {
         this.$soundBtnIcon = $('i', this.$soundBtn);
         this.$playSoundClick = $('[data-play-click]');
         this.$playSoundHover = $('[data-play-hover]');
+        this.$video = $('video')[0];
 
         // load all sounds
         this.loadSounds();
@@ -41,8 +43,10 @@ SoundsManager.prototype = {
             event.data._this.soundMute = !event.data._this.soundMute;
             if (event.data._this.soundMute) {
                 event.data._this.$soundBtnIcon.addClass('icon-sound-off').removeClass('icon-sound-on');
+                event.data._this.$video.volume = 0;
             } else {
                 event.data._this.$soundBtnIcon.addClass('icon-sound-on').removeClass('icon-sound-off');
+                event.data._this.$video.volume = 0.7;
             }
         });
     },

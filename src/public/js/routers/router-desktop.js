@@ -31,8 +31,13 @@ module.exports = Backbone.Router.extend({
     },
 
     experience: function () {
-        var view = new app.Views.ExperienceEnter();
-        app.instance.goto(view);
+        if (!app.Config.socket.mobileConnected) {
+            var view = new app.Views.ExperienceEnter();
+            app.instance.goto(view);
+        } else {
+            var view = new app.Views.ExperienceLoading();
+            app.instance.goto(view);
+        }
     },
 
     experienceChallenge: function () {

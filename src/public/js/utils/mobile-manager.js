@@ -20,6 +20,7 @@ MobileManager = function () {
 
     this.$btnStartExperience = null;
     this.$btnDisplayQuestion = null;
+    this.$btnRemindChallenge = null;
     this.$btnSendCode = null;
     this.$inputCode = null;
     this.$stepInfos = null;
@@ -53,7 +54,11 @@ MobileManager.prototype = {
             event.data._this.update();
         });
         this.$document.on('NEW_EXP_ID', { _this: this }, function( event ) {
-            event.data._this.sendJoinHosting(app.Config.socket.connectionId);
+            console.log('NEW EXP ID');
+            if (!app.Config.socket.mobileConnected) {
+                event.data._this.sendJoinHosting(app.Config.socket.connectionId);
+                app.Config.socket.mobileConnected = true;
+            }
         });
 
         // socket
@@ -68,10 +73,37 @@ MobileManager.prototype = {
         this.socket.on('_displayQuestion_', function(data) {
             self.displayQuestionToUser(data);
         });
+
         this.socket.on('_stepUpdated_', function (data) {
             app.Config.currentStep = data.id;
             self.$document.trigger('STEP_UPDATED');
             self.updateSteps(data);
+        });
+
+        this.socket.on('_goToPageExperience_', function () {
+            window.location.replace(app.Config.urlMobile + '#/' + app.Config.socket.connectionId);
+        });
+
+        this.socket.on('_goToPageAbout_', function (data) {
+            window.location.replace(app.Config.urlMobile + '#/about');
+        });
+
+        this.socket.on('_goToPageCommunity_', function () {
+            window.location.replace(app.Config.urlMobile + '#/community');
+        });
+
+        this.socket.on('_goToPageStatistics_', function () {
+            if (/^mobile-experience$/.test(self.currentPage)) {
+                _.delay(function () {
+                    self.$stepInfos.addClass('hide');
+                    self.$btnRemindChallenge.removeClass('hide');
+                    self.$btnRemindChallenge.on('click', { _self: self }, function(event) {
+                        event.data._self.$btnRemindChallenge.off();
+                        event.data._self.$btnRemindChallenge.addClass('hide');
+                        event.data._self.socket.emit('userStartChallenge');
+                    });
+                }, 5000);
+            }
         });
     },
 
@@ -109,6 +141,8 @@ MobileManager.prototype = {
                     self.$btnDisplayQuestion.addClass('hide');
                     self.$stepInfos.removeClass('hide');
                     self.$questionPage.toggleClass('show');
+                    self.$timerProgressbar.css('width', '0vw');
+                    self.$timerText.html('00 : 00');
                     self.socket.emit('sendUserAnswer', response);
                 }, 1000, this.value);
             }
@@ -141,6 +175,8 @@ MobileManager.prototype = {
                         self.$btnDisplayQuestion.addClass('hide');
                         self.$stepInfos.removeClass('hide');
                         self.$questionPage.toggleClass('show');
+                        self.$timerProgressbar.css('width', '0vw');
+                        self.$timerText.html('00 : 00');
                         currentScenario = _.first(self.getObjects(self.questionData, 'order', self.questionData.default_answer));
                         self.socket.emit('sendUserAnswer', currentScenario.scenario);
                     }
@@ -182,22 +218,26 @@ MobileManager.prototype = {
         if (/^mobile-about$/.test(this.currentPage)) {
             this.$logoHeader.addClass('hide');
             this.$bgTriangle.removeClass('hide');
-            this.$bgMobile.addClass('about').removeClass('hide');
+            this.$bgMobile.removeClass('experience community hide').addClass('about');
+        } else if (/^mobile-community$/.test(this.currentPage)) {
+            this.$logoHeader.addClass('hide');
+            this.$bgTriangle.removeClass('hide');
+            this.$bgMobile.removeClass('about experience hide').addClass('community');
         } else if (/^mobile-error$/.test(this.currentPage)) {
             this.$logoHeader.addClass('hide');
             this.$bgTriangle.removeClass('hide');
-            this.$bgMobile.removeClass('about').removeClass('hide');
+            this.$bgMobile.removeClass('about community experience hide');
 
             this.$btnSendCode = $('.btnSendCode');
             this.$inputCode = $('.codeExperience');
-            this.$btnSendCode.on('click', { _this: this }, function( event ) {
+            this.$btnSendCode.on('click', { _this: this }, function(event) {
                 event.data._this.$btnSendCode.off();
-                window.location = app.Config.urlMobile + '#/' + event.data._this.$inputCode.val().toUpperCase();
+                window.location.replace(app.Config.urlMobile + '#/' + event.data._this.$inputCode.val().toUpperCase());
             });
         } else if (/^mobile-experience$/.test(this.currentPage)) {
             this.$logoHeader.removeClass('hide');
             this.$bgTriangle.addClass('hide');
-            this.$bgMobile.removeClass('about').addClass('hide');
+            this.$bgMobile.removeClass('about community hide').addClass('experience');
 
             this.$questionPage = $('.alzheimer-questions');
             this.$questionText = $('.question h3', this.$questionPage);
@@ -210,22 +250,28 @@ MobileManager.prototype = {
             this.$stepinfosTitle = $('h3', this.$stepInfos);
             this.$stepinfosText = $('p', this.$stepInfos);
 
+
+            this.$btnRemindChallenge = $('.btn-challenge');
+            this.$btnRemindChallenge.on('click', { _this: this }, function(event) {
+                event.data._this.$btnRemindChallenge.off();
+                window.location.replace(app.Config.urlMobile + '#/community');
+            });
+
             this.$btnDisplayQuestion = $('.notification-question');
-            this.$btnDisplayQuestion.on('click', { _this: this }, function( event ) {
+            this.$btnDisplayQuestion.on('click', { _this: this }, function(event) {
                 event.data._this.$questionPage.toggleClass('show');
                 event.data._this.startQuestionTimer();
             });
         } else if (/^mobile-tutorial$/.test(this.currentPage)) {
-            var self = this;
             this.$logoHeader.addClass('hide');
             this.$bgTriangle.addClass('hide');
-            this.$bgMobile.removeClass('about').removeClass('hide');
+            this.$bgMobile.removeClass('about community experience').removeClass('hide');
 
             this.$btnStartExperience = $('.btnStartExperience');
-            this.$btnStartExperience.on('click', function() {
-                self.socket.emit('userStartExperience');
-                self.$btnStartExperience.off();
-                window.location = app.Config.urlMobile + '#/experience';
+            this.$btnStartExperience.on('click', { _this: this }, function(event) {
+                event.data._this.$btnStartExperience.off();
+                event.data._this.socket.emit('userStartExperience');
+                window.location.replace(app.Config.urlMobile + '#/experience');
             });
         }
     }

@@ -62,12 +62,14 @@ VideosManager.prototype = {
                 event.data._this.$videoSource.attr('src', 'assets/videos/' + name + '.mp4');
                 event.data._this.$video.prop('loop', true);
                 event.data._this.$video.load();
+                event.data._this.$video[0].volume = 0.7;
                 event.data._this.$video.addClass('is-visible').removeClass('is-hidden');
             });
         } else {
             this.$videoSource.attr('src', 'assets/videos/' + name + '.mp4');
             this.$video.prop('loop', true);
             this.$video.load();
+            this.$video[0].volume = 0.7;
         }
     }
 };
