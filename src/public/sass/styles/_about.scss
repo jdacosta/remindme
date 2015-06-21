@@ -41,11 +41,6 @@
                     @include size(50vh);
                     border-top: 0.8vh solid $color-white-10;
                     animation: rotation 30s linear infinite;
-
-                    &.active {
-                        border: 0.5vh solid $alzheimer-step7-10;
-                        box-shadow: inset 0 0 0.3vh 0.1vh $alzheimer-step7-08, 0 0 0.3vh 0.1vh $alzheimer-step7-08;
-                    }
                 }
             }
 
@@ -59,11 +54,6 @@
                     border-top: 0.6vh solid $color-white-10;
                     border-left: 0.6vh solid $color-white-10;
                     animation: rotation 40s linear infinite;
-
-                    &.active {
-                        border: 0.6vh solid $alzheimer-step4-10;
-                        box-shadow: inset 0 0 0.4vh 0.1vh $alzheimer-step4-08, 0 0 0.4vh 0.1vh $alzheimer-step4-08;
-                    }
                 }
             }
 
@@ -78,11 +68,6 @@
                     border-left: 0.3vh solid $color-white-10;
                     border-bottom: 0.3vh solid $color-white-10;
                     animation: rotation-inverse 60s linear infinite;
-
-                    &.active {
-                        border: 0.3vh solid $alzheimer-step3-10;
-                        box-shadow: inset 0 0 0.2vh 0.1vh $alzheimer-step3-08, 0 0 0.2vh 0.1vh $alzheimer-step3-08;
-                    }
                 }
             }
 
@@ -96,10 +81,19 @@
                 text-align: center;
                 opacity: 1;
 
-                .step {
-                    font: 6vh $font-antonio-bold;
-                    margin: 4.5vh 0 3vh;
-                    line-height: 10vh;
+                .content {
+                    opacity: 0;
+                    animation: fadein 1.5s linear both .3s;
+
+                    &.hide {
+                        animation: fadeout .5s linear both;
+                    }
+                }
+
+                .logo {
+                    @include size(6vh);
+                    @include absolute(top 6.5vh left 50%);
+                    margin: 0 0 0 -3vh;
                 }
 
                 .separator {
@@ -111,6 +105,7 @@
                 h3 {
                     font: 3vh $font-antonio-regular;
                     text-transform: uppercase;
+                    margin: 17vh 0 0;
                 }
 
                 h4 {
@@ -184,15 +179,14 @@
                 border: 0.3vh solid $color-white-05;
                 display: inline-block;
                 cursor: pointer;
-                transition: border .5s ease-in-out;
+                transition: background .5s ease-in-out;
 
                 &:hover {
                     border-color: $color-white-10;
                 }
 
                 &.active {
-                    border: none;
-                    background: $color-white-05;
+                    background: $color-white-10;
                 }
             }
         }
