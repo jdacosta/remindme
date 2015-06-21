@@ -75,6 +75,9 @@ ImmersiveManager.prototype = {
         this.$headerSocial.addClass('hidden');
         this.$footerLinks.addClass('hidden');
         this.$footerControls.addClass('hidden');
+        if (/^experience-home$/.test(this.currentPage)) {
+            $('.navigation').addClass('hidden');
+        }
         this.isHidden = true;
     },
 
@@ -82,6 +85,9 @@ ImmersiveManager.prototype = {
         this.$headerSocial.removeClass('hidden');
         this.$footerLinks.removeClass('hidden');
         this.$footerControls.removeClass('hidden');
+        if (/^experience-home$/.test(this.currentPage)) {
+            $('.navigation').removeClass('hidden');
+        }
         this.isHidden = false;
     }
 };

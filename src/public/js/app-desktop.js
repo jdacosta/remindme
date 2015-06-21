@@ -25,6 +25,7 @@ window.app = {
         new app.Router();
 
         // events
+        app.Classes.AboutManager      = new app.Utils.AboutManager();
         app.Classes.DesktopManager    = new app.Utils.DesktopManager();
         app.Classes.FullscreenManager = new app.Utils.FullscreenManager();
         app.Classes.HeaderManager     = new app.Utils.HeaderManager();
@@ -61,6 +62,7 @@ app.Views.ExperienceStatistics = require('./views/desktop/experience-statistics'
 app.Router = require('./routers/router-desktop');
 
 // utils
+app.Utils.AboutManager      = require('./utils/about-manager');
 app.Utils.DesktopManager    = require('./utils/desktop-manager');
 app.Utils.FullscreenManager = require('./utils/fullscreen-manager');
 app.Utils.HeaderManager     = require('./utils/header-manager');

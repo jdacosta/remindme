@@ -19,6 +19,10 @@ DeviceConnection.prototype = {
             self.mobile.emit('_stepUpdated_', data);
         });
 
+        this.desktop.on('aboutUpdated', function (data) {
+            self.mobile.emit('_aboutUpdated_', data);
+        });
+
         this.desktop.on('goToPageAbout', function (data) {
             self.mobile.emit('_goToPageAbout_', data);
         });

@@ -14,6 +14,7 @@ MobileManager = function () {
     this.$logoHeader = null;
     this.$bgTriangle = null;
     this.$bgMobile = null;
+    this.$mobileAbout = null;
 
 
     this.$questionPage = null;
@@ -78,6 +79,10 @@ MobileManager.prototype = {
             app.Config.currentStep = data.id;
             self.$document.trigger('STEP_UPDATED');
             self.updateSteps(data);
+        });
+
+        this.socket.on('_aboutUpdated_', function (data) {
+            self.updateAbout(data);
         });
 
         this.socket.on('_goToPageExperience_', function () {
@@ -193,6 +198,15 @@ MobileManager.prototype = {
         this.$stepinfosText.html(step.text);
     },
 
+    updateAbout: function (about) {
+        _.delay(function () {
+            $('.logo', this.$mobileAbout).attr('src', about.logo_mobile);
+            $('h1', this.$mobileAbout).html('<span class="top">- Association -</span> ' + about.title);
+            $('.link', this.$mobileAbout).attr('href', about.url).html(about.url);
+            $('.content p', this.$mobileAbout).html(about.data.text1 + '<br /><br />' + about.data.text2);
+        },1000);
+    },
+
     getObjects: function(obj, key, val) {
         var objects = [];
         for (var i in obj) {
@@ -219,6 +233,7 @@ MobileManager.prototype = {
             this.$logoHeader.addClass('hide');
             this.$bgTriangle.removeClass('hide');
             this.$bgMobile.removeClass('experience community hide').addClass('about');
+            this.$mobileAbout = ('.mobile-about');
         } else if (/^mobile-community$/.test(this.currentPage)) {
             this.$logoHeader.addClass('hide');
             this.$bgTriangle.removeClass('hide');

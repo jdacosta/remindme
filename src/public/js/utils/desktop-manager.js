@@ -19,10 +19,22 @@ DesktopManager = function () {
     this.$stepinfos = null;
     this.$stepinfosTitle = null;
     this.$stepinfosText = null;
+    this.$navigation = null;
+    this.$navigationCircle = null;
+    this.$navigationStep = null;
+    this.$navigationTitle = null;
+    this.$navigationDescription = null;
+    this.$timeline = null;
+    this.$timelineBullet = null;
+    this.$timelineLine = null;
+    $timelineLineProgress = null;
 
     // events
     this.$document.on('PAGE_UPDATED', { _this: this }, function( event ) {
         event.data._this.update();
+    });
+    this.$document.on('ABOUT_UPDATED', { _this: this }, function( event, data ) {
+        event.data._this.socket.emit('aboutUpdated', data);
     });
 
     // initialize
@@ -104,6 +116,7 @@ DesktopManager.prototype = {
     playExperienceScenario: function (scenarioId) {
         var self = this,
             secondsChrono = 0,
+            progressChrono = 0,
             scenario = null;
 
         if (this.$mobileNotification) {
@@ -148,6 +161,26 @@ DesktopManager.prototype = {
             }, 1000);
         };
         alzheimerSteps();
+
+        // progressbar
+        var progressbar = function () {
+            _.delay(function () {
+                progressChrono++;
+
+                var newProgress = _.first(scenario.progress);
+                if (progressChrono >= newProgress.time) {
+                    self.$timelineLineProgress.eq(app.Config.currentStep - 1).css('width', (9.2 * newProgress.value) / 100 + 'vw');
+                    scenario.progress = _.rest(scenario.progress);
+                }
+
+                if (scenario.progress.length > 0) {
+                    progressbar();
+                }
+            }, 1000);
+        };
+        if (scenario.progress) {
+            progressbar();
+        }
     },
 
     sendQuestionToUser: function (questionId) {
@@ -161,9 +194,40 @@ DesktopManager.prototype = {
     },
 
     updateSteps: function (step) {
+        // step-infos
         this.$stepinfosTitle.html('Stade <span class="number">' + step.id + '</span>');
         this.$stepinfosTitle.removeClass().addClass('s' + step.id);
         this.$stepinfosText.html(step.text);
+
+        // navigation
+        this.$navigationStep.html(step.id);
+        this.$navigationTitle.html(step.text);
+        this.$navigationDescription.html(step.description);
+        $('.arc', this.$navigationCircle).removeClass('active');
+        if (step.id < 4) {
+            $('.arc4', this.$navigationCircle).addClass('active');
+        } else if (step.id == 4) {
+            $('.arc3', this.$navigationCircle).addClass('active');
+        } else if (step.id == 5) {
+            $('.arc2', this.$navigationCircle).addClass('active');
+        } else {
+            $('.arc1', this.$navigationCircle).addClass('active');
+        }
+
+        this.updateTimeline(step);
+    },
+
+    updateTimeline: function (step) {
+        var i;
+        this.$timelineBullet.removeClass('active done');
+        this.$timelineLine.removeClass('done');
+        for (i = 0; i < step.id; i++) {
+            this.$timelineBullet.eq(i).removeClass('active').addClass('done');
+            if ((step.id - 1) > i) {
+                this.$timelineLine.eq(i).addClass('done');
+            }
+        }
+        this.$timelineBullet.eq(step.id - 1).addClass('active');
     },
 
     getObjects: function(obj, key, val) {
@@ -189,6 +253,17 @@ DesktopManager.prototype = {
             this.$stepinfos = $('.step-infos');
             this.$stepinfosTitle = $('h3', this.$stepinfos);
             this.$stepinfosText = $('p', this.$stepinfos);
+            this.$navigation = $('.navigation .infos');
+            this.$navigationCircle = $('.circle-menu');
+            this.$navigationStep = $('.step', this.$navigation);
+            this.$navigationTitle = $('h3', this.$navigation);
+            this.$navigationDescription = $('h4', this.$navigation);
+
+            this.$timeline = $('.timeline');
+            this.$timelineBullet = $('.bullet', this.$timeline);
+            this.$timelineLine = $('.line', this.$timeline);
+            this.$timelineLineProgress = $('.line-progress', this.$timeline);
+
         } else if (/^experience-loading$/.test(this.currentPage)) {
             if (app.Config.socket.mobileConnected) {
                 this.socket.emit('goToPageExperience');
