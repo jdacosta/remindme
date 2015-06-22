@@ -28,6 +28,67 @@
                 }
             }
 
+            .step-question,
+            .step-important {
+                @include border-radius(50%);
+                position: absolute;
+                z-index: 100;
+
+                &:hover {
+                    //&:before,
+                    &:after {
+                        content: '';
+                        @include size(2vw);
+                        @include absolute(top 50% left 50%);
+                        @include border-radius(50%);
+                        margin: -1vw 0 0 -1vw;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+
+                    /*&:before {
+                        animation: timeline-active-1 10s forwards infinite;
+                    }*/
+
+                    &:after {
+                        animation: timeline-active-2 10s forwards infinite;
+                    }
+                }
+            }
+
+            .step-question {
+                @include size(1.6vh);
+                background: $color-white-07;
+                box-shadow: 0 0 0.2vh 0.1vh $color-white-05;
+                font: 1.2vh $font-lato-regular;
+                color: $color-black-10;
+                line-height: 1.6vh;
+                text-align: center;
+
+                &:hover {
+                    background: $color-white-10;
+                    box-shadow: 0 0 0.2vh 0.1vh $color-white-08;
+
+                    &:before,
+                    &:after {
+                        box-shadow: 0 0 0 2px $color-white-10;
+                    }
+                }
+            }
+
+            .step-important {
+                @include size(1.2vh);
+                background: $color-red-10;
+                box-shadow: 0 0 0.2vh 0.1vh $color-red-08;
+
+                &:hover {
+                    &:before,
+                    &:after {
+                        box-shadow: 0 0 0 2px $color-red-10;
+                    }
+                }
+            }
+
             &:hover {
                 .arc {
                     opacity: .7;
@@ -49,9 +110,37 @@
                     animation: rotation 30s linear infinite;
 
                     &.active {
-                        //border: 0.5vh solid $alzheimer-step7-10;
+                        border: 0.3vh solid $color-red-10;
                         box-shadow: inset 0 0 0.2vh 0.1vh $color-red-08, 0 0 0.2vh 0.1vh $color-red-08;
-                        border-color: $color-red-10;
+                        //border-color: $color-red-10;
+                        animation: none;
+
+                        .sp1,
+                        .sp2,
+                        .sp3 {
+                            display: block;
+                        }
+                    }
+
+                    .sp1,
+                    .sp2,
+                    .sp3 {
+                        display: none;
+                    }
+
+                    .sp1 {
+                        top: 10vh;
+                        left: 50.6vh;
+                    }
+
+                    .sp2 {
+                        top: 53vh;
+                        left: 42.9vh;
+                    }
+
+                    .sp3 {
+                        top: 37vh;
+                        left: 0.7vh;
                     }
                 }
             }
@@ -68,9 +157,44 @@
                     animation: rotation-inverse 30s linear infinite;
 
                     &.active {
-                        //border: 0.5vh solid $alzheimer-step5-10;
+                        border: 0.3vh solid $color-red-10;
                         box-shadow: inset 0 0 0.2vh 0.1vh $color-red-08, 0 0 0.2vh 0.1vh $color-red-08;
-                        border-color: $color-red-10;
+                        //border-color: $color-red-10;
+                        animation: none;
+
+                        .sp1,
+                        .sp2,
+                        .sp3,
+                        .sp4 {
+                            display: block;
+                        }
+                    }
+
+                    .sp1,
+                    .sp2,
+                    .sp3,
+                    .sp4 {
+                        display: none;
+                    }
+
+                    .sp1 {
+                        top: 1vh;
+                        left: 32.8vh;
+                    }
+
+                    .sp2 {
+                        top: 35vh;
+                        left: 45.1vh;
+                    }
+
+                    .sp3 {
+                        top: 41.7vh;
+                        left: 7.2vh;
+                    }
+
+                    .sp4 {
+                        top: 6vh;
+                        left: 6.4vh;
                     }
                 }
             }
@@ -87,9 +211,51 @@
                     animation: rotation 40s linear infinite;
 
                     &.active {
-                        //border: 0.6vh solid $alzheimer-step4-10;
+                        border: 0.3vh solid $color-red-10;
                         box-shadow: inset 0 0 0.2vh 0.1vh $color-red-08, 0 0 0.2vh 0.1vh $color-red-08;
-                        border-color: $color-red-10;
+                        //border-color: $color-red-10;
+                        animation: none;
+
+                        .sp1,
+                        .sp2,
+                        .sp3,
+                        .sp4,
+                        .sp5 {
+                            display: block;
+                        }
+                    }
+
+                    .sp1,
+                    .sp2,
+                    .sp3,
+                    .sp4,
+                    .sp5 {
+                        display: none;
+                    }
+
+                    .sp1 {
+                        top: 2vh;
+                        left: 32vh;
+                    }
+
+                    .sp2 {
+                        top: 11vh;
+                        left: 40.6vh;
+                    }
+
+                    .sp3 {
+                        top: 37vh;
+                        left: 36vh;
+                    }
+
+                    .sp4 {
+                        top: 32vh;
+                        left: 2vh;
+                    }
+
+                    .sp5 {
+                        top: 9vh;
+                        left: 3vh;
                     }
                 }
             }
@@ -107,9 +273,65 @@
                     animation: rotation-inverse 60s linear infinite;
 
                     &.active {
-                        //border: 0.3vh solid $alzheimer-step3-10;
+                        border: 0.3vh solid $color-red-10;
                         box-shadow: inset 0 0 0.2vh 0.1vh $color-red-08, 0 0 0.2vh 0.1vh $color-red-08;
-                        border-color: $color-red-10;
+                        //border-color: $color-red-10;
+                        animation: none;
+
+                        .sp1,
+                        .sp2,
+                        .sp3,
+                        .sp4,
+                        .sp5,
+                        .sp6,
+                        .sp7 {
+                            display: block;
+                        }
+                    }
+
+                    .sp1,
+                    .sp2,
+                    .sp3,
+                    .sp4,
+                    .sp5,
+                    .sp6,
+                    .sp7 {
+                        display: none;
+                    }
+
+                    .sp1 {
+                        top: -1vh;
+                        left: 18vh;
+                    }
+
+                    .sp2 {
+                        top: 5vh;
+                        left: 31vh;
+                    }
+
+                    .sp3 {
+                        top: 15vh;
+                        left: 35.7vh;
+                    }
+
+                    .sp4 {
+                        top: 34vh;
+                        left: 25.6vh;
+                    }
+
+                    .sp5 {
+                        top: 33vh;
+                        left: 7.5vh;
+                    }
+
+                    .sp6 {
+                        top: 27vh;
+                        left: 1.8vh;
+                    }
+
+                    .sp7 {
+                        top: 13vh;
+                        left: -0.3vh;
                     }
                 }
             }

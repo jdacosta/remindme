@@ -54,7 +54,7 @@
             display: inline-block;
             margin: 0 0.7vh; // 7px
             @include border-radius(50%);
-            border: 0.2vh solid $color-white-02;
+            border: 0.15vh solid $color-white-02;
             cursor: pointer;
             transition: border .5s ease-in-out;
 
@@ -63,7 +63,7 @@
             }
 
             &:hover {
-                border: 0.2vh solid $color-white-10;
+                border: 0.15vh solid $color-white-10;
 
                 .icon {
                     color: $color-white-10;
