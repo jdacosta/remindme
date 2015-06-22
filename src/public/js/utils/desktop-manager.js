@@ -10,6 +10,7 @@ DesktopManager = function () {
     this.stepsExpererience = null;
     this.socket = null;
     this.socketBinded = false;
+    this.musicExperience = null;
 
     // elements
     this.$document = $(document);
@@ -27,7 +28,16 @@ DesktopManager = function () {
     this.$timeline = null;
     this.$timelineBullet = null;
     this.$timelineLine = null;
-    $timelineLineProgress = null;
+    this.$timelineLineProgress = null;
+
+    this.$statisticsTimeline = null;
+    this.$statisticsBullet = null;
+    this.$statisticsHeader = null;
+    this.$statisticsFooter = null;
+
+
+    this.$communitySocialProfile = null;
+    this.$fakeClickCommunity = null;
 
     // events
     this.$document.on('PAGE_UPDATED', { _this: this }, function( event ) {
@@ -35,6 +45,12 @@ DesktopManager = function () {
     });
     this.$document.on('ABOUT_UPDATED', { _this: this }, function( event, data ) {
         event.data._this.socket.emit('aboutUpdated', data);
+    });
+    this.$document.on('VOLUME_OFF', { _this: this }, function( event, data ) {
+        event.data._this.volumeSoundExperience('off');
+    });
+    this.$document.on('VOLUME_ON', { _this: this }, function( event, data ) {
+        event.data._this.volumeSoundExperience('on');
     });
 
     // initialize
@@ -123,6 +139,13 @@ DesktopManager.prototype = {
             this.$mobileNotification.removeClass('action');
         }
 
+        if (scenarioId > 4) {
+            if (this.musicExperience) {
+                this.musicExperience.stop();
+                this.musicExperience = null;
+            }
+        }
+
         scenario = _.clone(_.first(this.getObjects(this.scenariosExperience, 'id', scenarioId)));
 
         // play video
@@ -189,7 +212,7 @@ DesktopManager.prototype = {
         } else {
             this.socket.emit('displayQuestion', _.first(this.getObjects(this.questionsExperience, 'id', questionId)));
             this.$mobileNotification.addClass('action');
-            app.Classes.SoundsManager.playsoundById('mobile-notification');
+            app.Classes.SoundsManager.playsoundById('mobile-notification', 1, false);
         }
     },
 
@@ -231,6 +254,16 @@ DesktopManager.prototype = {
         this.$timelineBullet.eq(step.id - 1).addClass('active');
     },
 
+    volumeSoundExperience: function (currentStatus) {
+        if (this.musicExperience) {
+            if (currentStatus === 'on') {
+                this.musicExperience.volume = 0.1;
+            } else {
+                this.musicExperience.volume = 0;
+            }
+        }
+    },
+
     getObjects: function(obj, key, val) {
         var objects = [];
         for (var i in obj) {
@@ -249,6 +282,23 @@ DesktopManager.prototype = {
             this.currentPage = app.instance.currentPage.className;
         }
 
+        if (this.$video) {
+            this.$video.removeClass('blur');
+        }
+
+        if (this.$statisticsBullet) {
+            this.$statisticsBullet.off();
+        }
+
+        if (this.$fakeClickCommunity) {
+            this.$fakeClickCommunity.off();
+        }
+
+        if (!(/^experience-home$/.test(this.currentPage)) && this.musicExperience) {
+            this.musicExperience.stop();
+            this.musicExperience = null;
+        }
+
         if (/^experience-home$/.test(this.currentPage)) {
             this.$mobileNotification = $('.notification');
             this.$stepinfos = $('.step-infos');
@@ -265,6 +315,8 @@ DesktopManager.prototype = {
             this.$timelineLine = $('.line', this.$timeline);
             this.$timelineLineProgress = $('.line-progress', this.$timeline);
 
+            this.musicExperience = app.Classes.SoundsManager.playsoundById('music-experience', 0.1, true);
+
         } else if (/^experience-loading$/.test(this.currentPage)) {
             if (app.Config.socket.mobileConnected) {
                 this.socket.emit('goToPageExperience');
@@ -273,6 +325,20 @@ DesktopManager.prototype = {
                 $('.notification-mobile').addClass('action');
             }, 4000);
         } else if (/^experience-statistics$/.test(this.currentPage)) {
+            this.$statisticsTimeline = $('.timeline');
+            this.$statisticsBullet = $('.bullet', this.$statisticsTimeline);
+            this.$statisticsHeader = $('header', this.$statisticsTimeline);
+            this.$statisticsFooter = $('footer', this.$statisticsTimeline);
+            this.$statisticsBullet.on('click', { _this : this }, function (event) {
+                var index = event.data._this.$statisticsBullet.index($(this));
+                event.data._this.$statisticsBullet.removeClass('active');
+                event.data._this.$statisticsHeader.addClass('hidden');
+                event.data._this.$statisticsFooter.addClass('hidden');
+                event.data._this.$statisticsBullet.eq(index).addClass('active');
+                event.data._this.$statisticsHeader.eq(index).removeClass('hidden');
+                event.data._this.$statisticsFooter.eq(index).removeClass('hidden');
+            });
+
             if (app.Config.socket.mobileConnected) {
                 this.socket.emit('goToPageStatistics');
                 _.delay(function () {
@@ -289,6 +355,15 @@ DesktopManager.prototype = {
                 $('.notification').addClass('hide');
             }
         } else if (/^community$/.test(this.currentPage)) {
+
+            this.$communitySocialProfile = $('.social-profile');
+            this.$fakeClickCommunity = $('.fake-click');
+            this.$fakeClickCommunity.on('click', { _this : this }, function (event) {
+                event.data._this.$video.toggleClass('blur');
+                event.data._this.$communitySocialProfile.toggleClass('show');
+            });
+
+
             if (app.Config.socket.mobileConnected) {
                 this.socket.emit('goToPageCommunity');
                 _.delay(function () {
@@ -297,6 +372,8 @@ DesktopManager.prototype = {
             } else {
                 $('.notification').addClass('hide');
             }
+        } else if (/^community-challenge$/.test(this.currentPage)) {
+            this.$video.addClass('blur');
         }
     }
 };

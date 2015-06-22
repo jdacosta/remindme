@@ -6,6 +6,7 @@ module.exports = Backbone.Router.extend({
         '': 'experience',
         'about': 'about',
         'community': 'community',
+        'community/challenge': 'communityChallenge',
         'experience/challenge': 'experienceChallenge',
         'experience/device': 'experienceDevice',
         'experience/exit': 'experienceExit',
@@ -27,6 +28,11 @@ module.exports = Backbone.Router.extend({
 
     community: function () {
         var view = new app.Views.Community();
+        app.instance.goto(view);
+    },
+
+    communityChallenge: function () {
+        var view = new app.Views.CommunityChallenge();
         app.instance.goto(view);
     },
 

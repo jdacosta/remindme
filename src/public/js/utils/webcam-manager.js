@@ -11,7 +11,10 @@ WebcamManager = function () {
     // elements
     this.$document = null;
     this.$liveVideo = null;
+    this.$liveImage = null;
+    this.$liveCanvas = null;
     this.$snapshot = null;
+    this.$photobox = null;
 
     // initialize
     this.init();
@@ -38,9 +41,13 @@ WebcamManager.prototype = {
 
     liveWebcam: function () {
         this.$liveVideo = $('.webcam-video');
+        this.$liveCanvas = $('.webcam-canvas');
+        this.$liveImage = $('.webcam-image');
+        this.$photobox = $('.photo-box');
 
         if (this.userMedia) {
-            if (/^community$/.test(app.instance.currentPage.className)) {
+            if (/^community-challenge$/.test(app.instance.currentPage.className)) {
+                this.$snapshot = $('.webcam');
                 if (this.cameraActive && this.liveStream) {
                     this.liveStream.attr('src', window.URL.createObjectURL(this.liveStream));
                 } else {
@@ -51,6 +58,7 @@ WebcamManager.prototype = {
                         self.$liveVideo.attr('src', window.URL.createObjectURL(self.liveStream));
                     }, this.errorCallback);
                 }
+                this.takeSnapshot()
             } else {
                 this.cameraActive = false;
                 if (this.liveStream) {
@@ -58,7 +66,7 @@ WebcamManager.prototype = {
                 }
             }
         } else {
-            console.log('navigator.getUserMedia and window.URL error');
+            console.log('[ERROR] navigator.getUserMedia and window.URL error');
         }
     },
 
@@ -67,8 +75,17 @@ WebcamManager.prototype = {
     },
 
     takeSnapshot: function () {
-        this.$snapshot.on('click', function () {
-            //.drawImage(this.liveStream, 0, 0, 640, 480);
+        this.$snapshot.on('click', { _this : this }, function (event) {
+            event.data._this.$liveCanvas[0].getContext('2d').drawImage(event.data._this.$liveVideo[0], 0, 0);
+            event.data._this.$liveImage.attr('src', event.data._this.$liveCanvas[0].toDataURL('image/webp'));
+            event.data._this.$liveImage.removeClass('hidden');
+            event.data._this.$photobox.addClass('hidden');
+            event.data._this.$snapshot.off();
+
+            event.data._this.cameraActive = false;
+            if (event.data._this.liveStream) {
+                event.data._this.liveStream.stop();
+            }
         });
     }
 };

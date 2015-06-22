@@ -40,7 +40,7 @@ VideosManager.prototype = {
                 this.currentVideo = 'about';
                 this.liveVideo(this.currentVideo, true);
             }
-        } else if (/^community$/.test(this.currentPage)) {
+        } else if (/^community$/.test(this.currentPage) || /^community-challenge$/.test(this.currentPage)) {
             if (this.currentVideo != 'community') {
                 this.currentVideo = 'community';
                 this.liveVideo(this.currentVideo, true);

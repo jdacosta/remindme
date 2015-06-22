@@ -44,9 +44,11 @@ SoundsManager.prototype = {
             if (event.data._this.soundMute) {
                 event.data._this.$soundBtnIcon.addClass('icon-sound-off').removeClass('icon-sound-on');
                 event.data._this.$video.volume = 0;
+                event.data._this.$document.trigger('VOLUME_OFF');
             } else {
                 event.data._this.$soundBtnIcon.addClass('icon-sound-on').removeClass('icon-sound-off');
                 event.data._this.$video.volume = 0.7;
+                event.data._this.$document.trigger('VOLUME_ON');
             }
         });
     },
@@ -54,12 +56,25 @@ SoundsManager.prototype = {
     loadSounds: function () {
         soundjs.Sound.registerSound('../assets/sounds/controls-hover.mp3', 'controls-hover');
         soundjs.Sound.registerSound('../assets/sounds/mobile-notification.mp3', 'mobile-notification');
+        soundjs.Sound.registerSound('../assets/sounds/music-experience.mp3', 'music-experience');
     },
 
-    playsoundById: function (soundID) {
-        if (!this.soundMute) {
-            soundjs.Sound.play(soundID);
+    playsoundById: function (soundID, volume, loop) {
+        var self = this, sound;
+
+        if (loop) {
+            sound = soundjs.Sound.play(soundID, null, null, null, -1);
+        } else {
+            sound = soundjs.Sound.play(soundID);
         }
+
+        if (!this.soundMute) {
+            sound.volume = volume;
+        } else {
+            sound.volume = 0;
+        }
+
+        return sound;
     },
 
     updateElements: function () {
@@ -76,12 +91,12 @@ SoundsManager.prototype = {
 
         // click event
         this.$playSoundClick.on('click', { _this: this}, function (event) {
-            event.data._this.playsoundById($(this).attr('data-play-click'));
+            event.data._this.playsoundById($(this).attr('data-play-click'), 1, false);
         });
 
         // hover event
         this.$playSoundHover.on('mouseover', { _this: this}, function (event) {
-            event.data._this.playsoundById($(this).attr('data-play-hover'));
+            event.data._this.playsoundById($(this).attr('data-play-hover'), 1, false);
         });
     }
 };
