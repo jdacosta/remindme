@@ -82,8 +82,8 @@ DesktopManager.prototype = {
             }
         });
         /*this.socket.on('disconnected', function (data) {
-            self.disconnected();
-        });*/
+         self.disconnected();
+         });*/
     },
 
     bindSocketControls: function () {
@@ -106,12 +106,12 @@ DesktopManager.prototype = {
     },
 
     /*disconnected: function () {
-        if (/^experience-home$/.test(this.currentPage)) {
-            this.$mobileNotification.removeClass('action').addClass('action-error');
-        } else {
-            window.location.replace(app.Config.urlDesktop + '#/');
-        }
-    },*/
+     if (/^experience-home$/.test(this.currentPage)) {
+     this.$mobileNotification.removeClass('action').addClass('action-error');
+     } else {
+     window.location.replace(app.Config.urlDesktop + '#/');
+     }
+     },*/
 
     playExperienceScenario: function (scenarioId) {
         var self = this,
@@ -221,6 +221,7 @@ DesktopManager.prototype = {
         var i;
         this.$timelineBullet.removeClass('active done');
         this.$timelineLine.removeClass('done');
+        this.$timelineLineProgress.css('width', 0);
         for (i = 0; i < step.id; i++) {
             this.$timelineBullet.eq(i).removeClass('active').addClass('done');
             if ((step.id - 1) > i) {
