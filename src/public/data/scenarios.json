@@ -26,12 +26,24 @@
       ],
       "progress":[
         {
-          "time":6,
-          "value":54
+          "time":10,
+          "value":10
         },
         {
-          "time":13,
-          "value":67
+          "time":15,
+          "value":13
+        },
+        {
+          "time":20,
+          "value":18
+        },
+        {
+          "time":25,
+          "value":21
+        },
+        {
+          "time":30,
+          "value":24
         }
       ]
     },
@@ -41,15 +53,55 @@
       "loop":false,
       "question":3,
       "steps":[
-        {  
+        {
           "step":2,
-          "time":12
+          "time":30
         }
       ],
       "progress":[
         {
-          "time":10,
-          "value":100
+          "time":3,
+          "value":29
+        },
+        {
+          "time":6,
+          "value":36
+        },
+        {
+          "time":9,
+          "value":42
+        },
+        {
+          "time":12,
+          "value":44
+        },
+        {
+          "time":16,
+          "value":50
+        },
+        {
+          "time":19,
+          "value":55
+        },
+        {
+          "time":22,
+          "value":67
+        },
+        {
+          "time":25,
+          "value":80
+        },
+        {
+          "time":29,
+          "value":95
+        },
+        {
+          "time":31,
+          "value":35
+        },
+        {
+          "time":31,
+          "value":70
         }
       ]
     },
@@ -60,8 +112,30 @@
       "question":4,
       "steps":[
         {  
-          "step":2,
-          "time":0
+          "step":3,
+          "time":5
+        }
+      ],
+      "progress":[
+        {
+          "time":0,
+          "value":90
+        },
+        {
+          "time":2,
+          "value":99
+        },
+        {
+          "time":7,
+          "value":15
+        },
+        {
+          "time":10,
+          "value":50
+        },
+        {
+          "time":13,
+          "value":17
         }
       ]
     },
@@ -77,11 +151,89 @@
         },
         {  
           "step":6,
-          "time":23
+          "time":82
         },
         {  
           "step":7,
-          "time":34
+          "time":175
+        }
+      ],
+      "progress":[
+        {
+          "time":10,
+          "value":15
+        },
+        {
+          "time":20,
+          "value":30
+        },
+        {
+          "time":30,
+          "value":40
+        },
+        {
+          "time":40,
+          "value":55
+        },
+        {
+          "time":50,
+          "value":70
+        },
+        {
+          "time":60,
+          "value":80
+        },
+        {
+          "time":70,
+          "value":90
+        },
+        {
+          "time":80,
+          "value":99
+        },
+        {
+          "time":90,
+          "value":10
+        },
+        {
+          "time":100,
+          "value":18
+        },
+        {
+          "time":110,
+          "value":27
+        },
+        {
+          "time":120,
+          "value":35
+        },
+        {
+          "time":126,
+          "value":60
+        },
+        {
+          "time":130,
+          "value":65
+        },
+        {
+          "time":135,
+          "value":68
+        },
+        {
+          "time":138,
+          "value":90
+        },
+        {
+          "time":145,
+          "value":93
+        },
+        {
+          "time":155,
+          "value":96
+        },
+        {
+          "time":165,
+          "value":99
         }
       ]
     },
@@ -97,11 +249,61 @@
         },
         {  
           "step":6,
-          "time":11
+          "time":15
         },
         {  
           "step":7,
-          "time":14
+          "time":62
+        }
+      ],
+      "progress":[
+        {
+          "time":5,
+          "value":30
+        },
+        {
+          "time":10,
+          "value":70
+        },
+        {
+          "time":13,
+          "value":99
+        },
+        {
+          "time":20,
+          "value":25
+        },
+        {
+          "time":25,
+          "value":32
+        },
+        {
+          "time":30,
+          "value":37
+        },
+        {
+          "time":34,
+          "value":60
+        },
+        {
+          "time":40,
+          "value":63
+        },
+        {
+          "time":45,
+          "value":66
+        },
+        {
+          "time":49,
+          "value":80
+        },
+        {
+          "time":53,
+          "value":84
+        },
+        {
+          "time":58,
+          "value":99
         }
       ]
     }
