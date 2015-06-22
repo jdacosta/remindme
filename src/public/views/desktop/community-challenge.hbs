@@ -1,14 +1,34 @@
-<div class="fake-click"></div>
-
-<section class="social-profile">
+<section class="social-post">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
         <circle stroke-width="0.1" stroke-miterlimit="10" cx="64" cy="64" r="63.5"></circle>
         <polygon stroke-width="0.2" stroke-miterlimit="10" points="108.7,108.8 64,127.4 19.2,108.7 0.6,64 19.3,19.2 64,0.6 108.8,19.3 127.4,64"></polygon>
     </svg>
 
-    <div class="user-box">
-        <div class="user">
-            <img class="user-photo" src="assets/img/socialwall/user-socialwall.jpg" />
+    <div class="webcam-box">
+        <div class="webcam">
+            <img class="webcam-image hidden" src="#"/>
+            <canvas width="640" height="480" class="webcam-canvas"></canvas>
+            <video class="webcam-video" muted autoplay></video>
+            <div class="photo-box">
+                <svg class="photo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                    <defs>
+                        <rect id="SVGID_1_" x="0.8" y="13.5" width="126.4" height="100.9"></rect>
+                    </defs>
+                    <clipPath id="SVGID_2_">
+                        <use xlink:href="#SVGID_1_"  overflow="visible"></use>
+                    </clipPath>
+                    <path clip-path="url(#SVGID_2_)" d="M120.9,30.3H94.4L93.5,24l-0.7-4.3c-0.3-1.7-1.2-3.1-2.6-4.3c-1.5-1.2-3-1.9-4.7-1.9H42.4
+		c-1.7,0-3.3,0.6-4.8,1.9c-1.4,1.2-2.2,2.7-2.5,4.3L34.4,24l-1,6.3H7.1c-3.5,0-6.3,2.8-6.3,6.2v70.2c0,3.5,2.8,6.3,6.3,6.3h113.7
+		c3.5,0,6.3-2.8,6.3-6.3V36.5C127.2,33.2,124.4,30.3,120.9,30.3L120.9,30.3z M119.6,105.4H8.4V37.9h25.1c3.8,0,7.1-2.8,7.6-6.5
+		l0.9-6.3l0.7-3.9h42.7l0.6,3.9l1,6.3c0.6,3.6,3.9,6.5,7.5,6.5h25.2V105.4z M119.6,105.4"></path>
+                    <path d="M107.3,55.9c3.3,0,6-2.8,6-6.1c0-3.4-2.7-6.2-6-6.2c-3.4,0-6.1,2.8-6.1,6.2C101.3,53,104,55.9,107.3,55.9L107.3,55.9z
+	 M107.3,55.9"></path>
+                    <path d="M63.9,39.9c-7.8,0-14.5,2.8-20.1,8.4c-5.6,5.6-8.4,12.3-8.4,20.1c0,7.8,2.8,14.5,8.4,20.1c5.6,5.6,12.3,8.2,20.1,8.3
+	C79.3,97,92.6,83.7,92.4,68.4c-0.1-7.8-2.8-14.5-8.4-20.1C78.4,42.7,71.7,39.9,63.9,39.9L63.9,39.9z M78.6,83.2
+	c-4.1,4.1-8.9,6.1-14.7,6.1c-5.7,0-10.6-2-14.7-6.1c-4.1-4.1-6-9-6-14.8c0-5.7,2-10.7,6-14.7c4.1-4.1,8.9-6.1,14.7-6.1
+	c5.8,0,10.7,2.1,14.7,6.1c4.1,4.1,6.1,9,6.1,14.7C84.8,74.2,82.7,79.1,78.6,83.2L78.6,83.2z M78.6,83.2"></path>
+                </svg>
+            </div>
         </div>
     </div>
 

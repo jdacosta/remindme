@@ -164,7 +164,7 @@
 
 
     <!-- // EXPERIENCE VIDEO // -->
-    <video autoplay loop class="bg-video is-visible">
+    <video autoplay loop class="bg-video is-visible blur">
         <source src="assets/videos/background.mp4" type="video/mp4">
     </video>
     <div class="color-filter"></div>
@@ -174,16 +174,6 @@
     <!-- // SCRIPTS // -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="assets/js/app-desktop.js"></script>
-   <!-- <script>
-        (function () {
-            var socket = io.connect(app.Config.socket.url);
-            socket.emit('newHosting');
-            socket.on('newConnectionID', function (data) {
-                app.Config.socket.connectionId = data.connectionId;
-                app.Config.socket.mySocketId = data.mySocketId;
-            });
-        })();
-    </script>-->
     <!-- // SCRIPTS // -->
 </body>
 </html>
