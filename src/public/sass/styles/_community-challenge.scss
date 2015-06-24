@@ -95,11 +95,18 @@
             margin: 7vh 0 0 -24vh;
 
             .citation {
-                @include size(40vh, auto);
-                margin: 2vh auto 0;
+                @include size(38vh, 8vh);
+                margin: 2vh 0 0 5vh;
                 font: 2vh $font-lato-regular;
                 line-height: 2.5vh;
                 text-align: center;
+                color: $color-white-10;
+                background: $color-white-01;
+                border: none;
+                resize: none;
+                outline: 0;
+                @include border-radius(5px);
+                vertical-align:middle;
             }
 
             .quote-top,
@@ -118,42 +125,16 @@
                 @include absolute(top 8vh right 0);
             }
 
-            .social {
-                @include size(8.8vh, auto);
+            .btn-validation-photo {
+                @include size(30vh, auto);
                 @include relative(left 50%);
-                margin: 5vh 0 0 -4.4vh;
-
-                .button {
-                    @include size(3vh); // 40 px
-                    position: relative;
-                    display: inline-block;
-                    @include border-radius(50%);
-                    border: 0.15vh solid $color-white-05;
-                    cursor: pointer;
-                    transition: border .5s ease-in-out;
-
-                    &:first-child {
-                        margin: 0 1vh;
-                    }
-
-                    &:hover {
-                        border: 0.15vh solid $color-white-10;
-
-                        .icon {
-                            color: $color-white-10;
-                        }
-                    }
-
-                    .icon {
-                        @include size(3vh); // 40px
-                        position: absolute;
-                        color: $color-white-05;
-                        font-size: 1.6vh; // 18px
-                        line-height: 3.3vh;
-                        text-align: center;
-                        transition: color .5s ease-in-out;
-                    }
-                }
+                margin: 5vh 0 0 -15vh;
+                border: 1px solid $color-red-10;
+                font: 1.1vh $font-lato-regular;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 1vh 0;
+                cursor: pointer;
             }
         }
     }
