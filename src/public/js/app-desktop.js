@@ -12,10 +12,10 @@ window.app = {
 
         // config
         app.Config.currentStep = 1;
-        app.Config.urlDesktop = 'http://192.168.42.207:1338/';
-        app.Config.urlMobile  = 'http://192.168.42.207:1338/m/';
+        app.Config.urlDesktop = 'http://192.168.42.71:1338/';
+        app.Config.urlMobile  = 'http://192.168.42.71:1338/m/';
         app.Config.socket = {
-            url: 'http://192.168.42.207:1338',
+            url: 'http://192.168.42.71:1338',
             connectionId: '',
             mobileConnected: false
         };

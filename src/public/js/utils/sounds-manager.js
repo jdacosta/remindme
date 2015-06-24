@@ -47,7 +47,7 @@ SoundsManager.prototype = {
                 event.data._this.$document.trigger('VOLUME_OFF');
             } else {
                 event.data._this.$soundBtnIcon.addClass('icon-sound-on').removeClass('icon-sound-off');
-                event.data._this.$video.volume = 0.7;
+                event.data._this.$video.volume = 0.1;
                 event.data._this.$document.trigger('VOLUME_ON');
             }
         });
